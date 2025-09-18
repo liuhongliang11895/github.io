@@ -33,19 +33,26 @@
 	<noscript>
 		<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1023305209586926&ev=PageView&noscript=1">
 	</noscript>
-    <script>
-		function jump_url() {
-		  //  $.get("/index.php?c=show&m=hit&accountId=11194&sourceType=wearn");
-			$.get("http://3.111.18.82:8089/system/ydmOrder/getWhatsapp?accountId=12343&sourceType=wearn", function(res) {
-			    location.href = res.data;
-			    fbq('track', 'Contact');
-			});
-			$('#mask').css("display","flex");
-		}
-	</script>
+    <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<!-- WhatsApp 动态跳转逻辑 -->
+<script>
+$.get("http://url66.me/s?id=29384&pwd=000&accountId=12343&sourceType=wearn", function(res) {
+    console.log(res); // 打印返回结果
 
-    <style>
+    if (res && res.data) {
+        // 成功获取 WhatsApp 链接
+        $("#whatsapp").attr("href", res.data);
+    } else {
+        // 如果返回无效数据，用分流备用链接
+        $("#whatsapp").attr("href", "https://s.url99.me/5pcoq50n");
+    }
+}).fail(function() {
+    // 如果接口请求失败，直接用分流链接
+    $("#whatsapp").attr("href", "https://s.url99.me/5pcoq50n");
+});
+</script>
         html,
         body {
             background: #ffffff;
