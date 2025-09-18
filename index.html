@@ -1,0 +1,2705 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="transparent">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <script src="static/js/jquery.min.js" type="text/javascript"></script>
+	<script>
+		! function(f, b, e, v, n, t, s) {
+			if (f.fbq) return;
+			n = f.fbq = function() {
+				n.callMethod ?
+					n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+			};
+			if (!f._fbq) f._fbq = n;
+			n.push = n;
+			n.loaded = !0;
+			n.version = '2.0';
+			n.queue = [];
+			t = b.createElement(e);
+			t.async = !0;
+			t.src = v;
+			s = b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t, s)
+		}(window, document, 'script',
+			'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '1023305209586926');
+		fbq('track', 'PageView');
+	</script>
+	<noscript>
+		<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1023305209586926&ev=PageView&noscript=1">
+	</noscript>
+    <script>
+		function jump_url() {
+		  //  $.get("/index.php?c=show&m=hit&accountId=11194&sourceType=wearn");
+			$.get("http://3.111.18.82:8089/system/ydmOrder/getWhatsapp?accountId=12343&sourceType=wearn", function(res) {
+			    location.href = res.data;
+			    fbq('track', 'Contact');
+			});
+			$('#mask').css("display","flex");
+		}
+	</script>
+
+
+    <style>
+        html,
+        body {
+            background: #ffffff;
+            margin: 8px 0px 100px 0px;
+        }
+
+        .main {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333333;
+            padding: 0 15px
+        }
+
+        .main img {
+            width: 100%
+        }
+
+        .main .add_time {
+            line-height: 1.8;
+            text-align: center;
+            color: #999999;
+            font-size: 12px;
+            padding-bottom: 10px;
+        }
+
+        .main h1 {
+            font-size: 18px;
+            text-align: center;
+            margin: 0;
+            padding: 5px 0 0 0;
+        }
+
+        .main .content {
+            color: #555555
+        }
+
+        .you {
+            animation: twinkle1 .6s infinite alternate;
+            -moz-animation: twinkle1 .6s infinite alternate;
+            -ms-animation: twinkle1 .6s infinite alternate;
+            -webkit-animation: twinkle1 .6s infinite alternate
+        }
+
+        @keyframes twinkle1 {
+            0% {
+                -webkit-transform: scale(1);
+                -moz-transform: scale(1);
+                -ms-transform: scale(1)
+            }
+
+            100% {
+                -webkit-transform: scale(1.1);
+                -moz-transform: scale(1.1);
+                -ms-transform: scale(1.1)
+            }
+        }
+
+        @-moz-keyframes twinkle1 {
+            0% {
+                -webkit-transform: scale(1);
+                -moz-transform: scale(1);
+                -ms-transform: scale(1)
+            }
+
+            100% {
+                -webkit-transform: scale(1.1);
+                -moz-transform: scale(1.1);
+                -ms-transform: scale(1.1)
+            }
+        }
+
+        .loader,
+        .loader:before,
+        .loader:after {
+            background: #FFF;
+            animation: load1 1s infinite ease-in-out;
+            width: 1em;
+            height: 2.5em;
+        }
+
+        .loader:before,
+        .loader:after {
+            position: absolute;
+            top: 0;
+            content: '';
+        }
+
+        .loader:before {
+            left: -1.5em;
+        }
+
+        .loader {
+            text-indent: -9999em;
+            position: relative;
+            font-size: 11px;
+            animation-delay: 0.16s;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader:after {
+            left: 1.5em;
+            animation-delay: 0.32s;
+        }
+
+        @keyframes load1 {
+
+            0%,
+            80%,
+            100% {
+                box-shadow: 0 0 #FFF;
+                height: 2.5em;
+            }
+
+            40% {
+                /* 实现上部拉伸 */
+                box-shadow: 0 -1.5em #ffffff;
+                /* 实现下部拉伸 */
+                height: 3em;
+            }
+        }
+
+        .bgtip {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .bgtip .tip {
+            position: relative;
+            text-align: center;
+            width: 375px;
+            height: 349px;
+            background: url(static/image/13.png) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .bgtip .tip .icon {
+            position: absolute;
+            top: -16px;
+            right: 12px;
+        }
+
+        .bgtip .tip .content {
+            margin-top: 230px;
+        }
+
+        .bgtip .tip .content .text {
+            margin: auto;
+            width: 80%;
+            font-size: 26px;
+            font-family: Inter-Bold, Inter;
+            font-weight: bold;
+            line-height: 30px;
+            text-shadow: 0px 4px 4px rgba(89, 1, 1, 0.25);
+            -webkit-text-stroke: 1px #FFFFFF;
+            text-stroke: 1px #FFFFFF;
+            background: linear-gradient(138deg, #FFF0DC 0%, #FFF0DC 78%, #FFE0B6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bgtip .tip .content .txt {
+            font-size: 18px;
+            line-height: 30px;
+            font-family: Inter-Medium, Inter;
+            font-weight: 500;
+            color: #FFFFFF;
+            margin-top: 10px;
+        }
+
+        .bgtip .tip .btns {
+            margin: 10px auto 0;
+            padding: 6px 0;
+            width: 168px;
+            background: linear-gradient(95.79deg, #FEAE6D 19.46%, #FE794D 85.83%);
+            border: 1px solid #F9B972;
+            box-shadow: 0px 4px 4px rgba(102, 7, 7, 0.25), 0px 5px 0px #D4371C;
+            border-radius: 120px;
+        }
+
+        .bgtip .tip .btns .text {
+            font-size: 20px;
+            line-height: 30px;
+            font-family: Source Han Sans CN-Bold, Source Han Sans CN;
+            font-weight: bold;
+            color: #FFFFFF;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.62);
+            -webkit-background-clip: text;
+        }
+    </style>
+
+</head>
+
+<body data-elementor-device-mode="mobile" style="">
+	<div class="main">
+        <div class="content">
+            <style>
+                img.wp-smiley,
+                img.emoji {
+                    display: inline !important;
+                    border: none !important;
+                    box-shadow: none !important;
+                    height: 1em !important;
+                    width: 1em !important;
+                    margin: 0 .07em !important;
+                    vertical-align: -0.1em !important;
+                    background: none !important;
+                    padding: 0 !important;
+                }
+            </style>
+            <link rel="stylesheet" id="astra-theme-css-css" href="static/css/main.min.css" media="all">
+            <style id="astra-theme-css-inline-css">
+                a,
+                .page-title {
+                    color: #0274be
+                }
+
+                a:hover,
+                a:focus {
+                    color: #3a3a3a
+                }
+
+                body,
+                button,
+                input,
+                select,
+                textarea,
+                .ast-button,
+                .ast-custom-button {
+                    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+                    font-weight: 400;
+                    font-size: 17px;
+                    font-size: 1rem
+                }
+
+                blockquote {
+                    color: #000
+                }
+
+                h1,
+                .entry-content h1,
+                h2,
+                .entry-content h2,
+                h3,
+                .entry-content h3,
+                h4,
+                .entry-content h4,
+                h5,
+                .entry-content h5,
+                h6,
+                .entry-content h6,
+                .site-title,
+                .site-title a {
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 500
+                }
+
+                .site-title {
+                    font-size: 35px;
+                    font-size: 2.0588235294118rem
+                }
+
+                header .custom-logo-link img {
+                    max-width: 217px
+                }
+
+                .astra-logo-svg {
+                    width: 217px
+                }
+
+                .ast-archive-description .ast-archive-title {
+                    font-size: 40px;
+                    font-size: 2.3529411764706rem
+                }
+
+                .site-header .site-description {
+                    font-size: 15px;
+                    font-size: .88235294117647rem
+                }
+
+                .entry-title {
+                    font-size: 30px;
+                    font-size: 1.7647058823529rem
+                }
+
+                h1,
+                .entry-content h1 {
+                    font-size: 50px;
+                    font-size: 2.9411764705882rem;
+                    font-weight: 500;
+                    font-family: 'Roboto', sans-serif
+                }
+
+                h2,
+                .entry-content h2 {
+                    font-size: 30px;
+                    font-size: 1.7647058823529rem;
+                    font-family: 'Roboto', sans-serif
+                }
+
+                h3,
+                .entry-content h3 {
+                    font-size: 25px;
+                    font-size: 1.4705882352941rem;
+                    font-family: 'Roboto', sans-serif
+                }
+
+                h4,
+                .entry-content h4 {
+                    font-size: 20px;
+                    font-size: 1.1764705882353rem
+                }
+
+                h5,
+                .entry-content h5 {
+                    font-size: 18px;
+                    font-size: 1.0588235294118rem
+                }
+
+                h6,
+                .entry-content h6 {
+                    font-size: 15px;
+                    font-size: .88235294117647rem
+                }
+
+                .ast-single-post .entry-title,
+                .page-title {
+                    font-size: 30px;
+                    font-size: 1.7647058823529rem
+                }
+
+                ::selection {
+                    background-color: #0274be;
+                    color: #fff
+                }
+
+                body,
+                h1,
+                .entry-title a,
+                .entry-content h1,
+                h2,
+                .entry-content h2,
+                h3,
+                .entry-content h3,
+                h4,
+                .entry-content h4,
+                h5,
+                .entry-content h5,
+                h6,
+                .entry-content h6 {
+                    color: #3a3a3a
+                }
+
+                .tagcloud a:hover,
+                .tagcloud a:focus,
+                .tagcloud a.current-item {
+                    color: #fff;
+                    border-color: #0274be;
+                    background-color: #0274be
+                }
+
+                input:focus,
+                input[type=\"text\"]:focus,
+                input[type=\"email\"]:focus,
+                input[type=\"url\"]:focus,
+                input[type=\"password\"]:focus,
+                input[type=\"reset\"]:focus,
+                input[type=\"search\"]:focus,
+                textarea:focus {
+                    border-color: #0274be
+                }
+
+                input[type=\"radio\"]:checked,
+                input[type=reset],
+                input[type=\"checkbox\"]:checked,
+                input[type=\"checkbox\"]:hover:checked,
+                input[type=\"checkbox\"]:focus:checked,
+                input[type=range]::-webkit-slider-thumb {
+                    border-color: #0274be;
+                    background-color: #0274be;
+                    box-shadow: none
+                }
+
+                .site-footer a:hover+.post-count,
+                .site-footer a:focus+.post-count {
+                    background: #0274be;
+                    border-color: #0274be
+                }
+
+                .single .nav-links .nav-previous,
+                .single .nav-links .nav-next {
+                    color: #0274be
+                }
+
+                .entry-meta,
+                .entry-meta * {
+                    line-height: 1.45;
+                    color: #0274be
+                }
+
+                .entry-meta a:hover,
+                .entry-meta a:hover *,
+                .entry-meta a:focus,
+                .entry-meta a:focus *,
+                .page-links>.page-link,
+                .page-links .page-link:hover,
+                .post-navigation a:hover {
+                    color: #3a3a3a
+                }
+
+                .widget-title {
+                    font-size: 24px;
+                    font-size: 1.4117647058824rem;
+                    color: #3a3a3a
+                }
+
+                #cat option,
+                .secondary .calendar_wrap thead a,
+                .secondary .calendar_wrap thead a:visited {
+                    color: #0274be
+                }
+
+                .secondary .calendar_wrap #today,
+                .ast-progress-val span {
+                    background: #0274be
+                }
+
+                .secondary a:hover+.post-count,
+                .secondary a:focus+.post-count {
+                    background: #0274be;
+                    border-color: #0274be
+                }
+
+                .calendar_wrap #today>a {
+                    color: #fff
+                }
+
+                .page-links .page-link,
+                .single .post-navigation a {
+                    color: #0274be
+                }
+
+                .ast-page-builder-template .hentry {
+                    margin: 0
+                }
+
+                .ast-page-builder-template .site-content>.ast-container {
+                    max-width: 100%;
+                    padding: 0
+                }
+
+                .ast-page-builder-template .site-content #primary {
+                    padding: 0;
+                    margin: 0
+                }
+
+                .ast-page-builder-template .no-results {
+                    text-align: center;
+                    margin: 4em auto
+                }
+
+                .ast-page-builder-template .ast-pagination {
+                    padding: 2em
+                }
+
+                .ast-page-builder-template .entry-header.ast-no-title.ast-no-thumbnail {
+                    margin-top: 0
+                }
+
+                .ast-page-builder-template .entry-header.ast-header-without-markup {
+                    margin-top: 0;
+                    margin-bottom: 0
+                }
+
+                .ast-page-builder-template .entry-header.ast-no-title.ast-no-meta {
+                    margin-bottom: 0
+                }
+
+                .ast-page-builder-template.single .post-navigation {
+                    padding-bottom: 2em
+                }
+
+                .ast-page-builder-template.single-post .site-content>.ast-container {
+                    max-width: 100%
+                }
+
+                .ast-page-builder-template.single-post .site-content>.ast-container {
+                    max-width: 100%
+                }
+
+                .ast-page-builder-template .entry-header {
+                    margin-top: 4em;
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding-left: 20px;
+                    padding-right: 20px
+                }
+
+                .ast-page-builder-template .ast-archive-description {
+                    margin-top: 4em;
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding-left: 20px;
+                    padding-right: 20px
+                }
+
+                .ast-page-builder-template.ast-no-sidebar .entry-content .alignwide {
+                    margin-left: 0;
+                    margin-right: 0
+                }
+
+                .single.ast-page-builder-template .entry-header {
+                    padding-left: 20px;
+                    padding-right: 20px
+                }
+
+                .ast-page-builder-template.ast-no-sidebar .entry-content .alignwide {
+                    margin-left: 0;
+                    margin-right: 0
+                }
+
+                .wp-block-buttons.aligncenter {
+                    justify-content: center
+                }
+
+                @media (min-width: 1200px) {
+                    .ast-separate-container.ast-right-sidebar .entry-content .wp-block-image.alignfull,
+                    .ast-separate-container.ast-left-sidebar .entry-content .wp-block-image.alignfull,
+                    .ast-separate-container.ast-right-sidebar .entry-content .wp-block-cover.alignfull,
+                    .ast-separate-container.ast-left-sidebar .entry-content .wp-block-cover.alignfull {
+                        margin-left: -6.67em;
+                        margin-right: -6.67em;
+                        max-width: unset;
+                        width: unset
+                    }
+
+                    .ast-separate-container.ast-right-sidebar .entry-content .wp-block-image.alignwide,
+                    .ast-separate-container.ast-left-sidebar .entry-content .wp-block-image.alignwide,
+                    .ast-separate-container.ast-right-sidebar .entry-content .wp-block-cover.alignwide,
+                    .ast-separate-container.ast-left-sidebar .entry-content .wp-block-cover.alignwide {
+                        margin-left: -20px;
+                        margin-right: -20px;
+                        max-width: unset;
+                        width: unset
+                    }
+                }
+
+                @media (min-width: 1200px) {
+                    .wp-block-group .has-background {
+                        padding: 20px
+                    }
+                }
+
+                @media (min-width: 1200px) {
+                    .ast-no-sidebar.ast-separate-container .entry-content .wp-block-group.alignwide,
+                    .ast-no-sidebar.ast-separate-container .entry-content .wp-block-cover.alignwide {
+                        margin-left: -20px;
+                        margin-right: -20px;
+                        padding-left: 20px;
+                        padding-right: 20px
+                    }
+
+                    .ast-no-sidebar.ast-separate-container .entry-content .wp-block-cover.alignfull,
+                    .ast-no-sidebar.ast-separate-container .entry-content .wp-block-group.alignfull {
+                        margin-left: -6.67em;
+                        margin-right: -6.67em;
+                        padding-left: 6.67em;
+                        padding-right: 6.67em
+                    }
+                }
+
+                @media (min-width: 1200px) {
+
+                    .wp-block-cover-image.alignwide .wp-block-cover__inner-container,
+                    .wp-block-cover.alignwide .wp-block-cover__inner-container,
+                    .wp-block-cover-image.alignfull .wp-block-cover__inner-container,
+                    .wp-block-cover.alignfull .wp-block-cover__inner-container {
+                        width: 100%
+                    }
+                }
+
+                .ast-plain-container.ast-no-sidebar #primary {
+                    margin-top: 0;
+                    margin-bottom: 0
+                }
+
+                @media (max-width: 921px) {
+                    .ast-theme-transparent-header #primary,
+                    .ast-theme-transparent-header #secondary {
+                        padding: 0
+                    }
+                }
+
+                .wp-block-columns {
+                    margin-bottom: unset
+                }
+
+                .wp-block-image.size-full {
+                    margin: 2rem 0
+                }
+
+                .wp-block-separator.has-background {
+                    padding: 0
+                }
+
+                .wp-block-gallery {
+                    margin-bottom: 1.6em
+                }
+
+                .wp-block-group {
+                    padding-top: 4em;
+                    padding-bottom: 4em
+                }
+
+                .wp-block-group__inner-container .wp-block-columns:last-child,
+                .wp-block-group__inner-container :last-child,
+                .wp-block-table table {
+                    margin-bottom: 0
+                }
+
+                .blocks-gallery-grid {
+                    width: 100%
+                }
+
+                .wp-block-navigation-link__content {
+                    padding: 5px 0
+                }
+
+                .wp-block-group .wp-block-group .has-text-align-center,
+                .wp-block-group .wp-block-column .has-text-align-center {
+                    max-width: 100%
+                }
+
+                .has-text-align-center {
+                    margin: 0 auto
+                }
+
+                @media (min-width: 1200px) {
+
+                    .wp-block-cover__inner-container,
+                    .alignwide .wp-block-group__inner-container,
+                    .alignfull .wp-block-group__inner-container {
+                        max-width: 1200px;
+                        margin: 0 auto
+                    }
+
+                    .wp-block-group.alignnone,
+                    .wp-block-group.aligncenter,
+                    .wp-block-group.alignleft,
+                    .wp-block-group.alignright,
+                    .wp-block-group.alignwide,
+                    .wp-block-columns.alignwide {
+                        margin: 2rem 0 1rem 0
+                    }
+                }
+
+                @media (max-width: 1200px) {
+                    .wp-block-group {
+                        padding: 3em
+                    }
+
+                    .wp-block-group .wp-block-group {
+                        padding: 1.5em
+                    }
+
+                    .wp-block-columns,
+                    .wp-block-column {
+                        margin: 1rem 0
+                    }
+                }
+
+                @media (min-width: 921px) {
+                    .wp-block-columns .wp-block-group {
+                        padding: 2em
+                    }
+                }
+
+                @media (max-width: 544px) {
+
+                    .wp-block-cover-image .wp-block-cover__inner-container,
+                    .wp-block-cover .wp-block-cover__inner-container {
+                        width: unset
+                    }
+
+                    .wp-block-cover,
+                    .wp-block-cover-image {
+                        padding: 2em 0
+                    }
+
+                    .wp-block-group,
+                    .wp-block-cover {
+                        padding: 2em
+                    }
+
+                    .wp-block-media-text__media img,
+                    .wp-block-media-text__media video {
+                        width: unset;
+                        max-width: 100%
+                    }
+
+                    .wp-block-media-text.has-background .wp-block-media-text__content {
+                        padding: 1em
+                    }
+                }
+
+                @media (max-width: 921px) {
+                    .ast-plain-container.ast-no-sidebar #primary {
+                        padding: 0
+                    }
+                }
+
+                @media (min-width: 544px) {
+                    .entry-content .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
+                        padding: 0 8% 0 0
+                    }
+
+                    .entry-content .wp-block-media-text .wp-block-media-text__content {
+                        padding: 0 0 0 8%
+                    }
+
+                    .ast-plain-container .site-content .entry-content .has-custom-content-position.is-position-bottom-left>*,
+                    .ast-plain-container .site-content .entry-content .has-custom-content-position.is-position-bottom-right>*,
+                    .ast-plain-container .site-content .entry-content .has-custom-content-position.is-position-top-left>*,
+                    .ast-plain-container .site-content .entry-content .has-custom-content-position.is-position-top-right>*,
+                    .ast-plain-container .site-content .entry-content .has-custom-content-position.is-position-center-right>*,
+                    .ast-plain-container .site-content .entry-content .has-custom-content-position.is-position-center-left>* {
+                        margin: 0
+                    }
+                }
+
+                @media (max-width: 544px) {
+                    .entry-content .wp-block-media-text .wp-block-media-text__content {
+                        padding: 8% 0
+                    }
+
+                    .wp-block-media-text .wp-block-media-text__media img {
+                        width: auto;
+                        max-width: 100%
+                    }
+                }
+
+                .wp-block-button.is-style-outline .wp-block-button__link {
+                    border-color: #1969dc;
+                    border-top-width: 2px;
+                    border-right-width: 2px;
+                    border-bottom-width: 2px;
+                    border-left-width: 2px
+                }
+
+                .wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color),
+                .wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color) {
+                    color: #1969dc
+                }
+
+                .wp-block-button.is-style-outline .wp-block-button__link:hover,
+                .wp-block-button.is-style-outline .wp-block-button__link:focus {
+                    color: #ffffff !important;
+                    background-color: #234980;
+                    border-color: #234980
+                }
+
+                .post-page-numbers.current .page-link,
+                .ast-pagination .page-numbers.current {
+                    color: #fff;
+                    border-color: #0274be;
+                    background-color: #0274be;
+                    border-radius: 2px
+                }
+
+                @media (max-width: 921px) {
+                    .wp-block-button.is-style-outline .wp-block-button__link {
+                        padding-top: calc(15px - 2px);
+                        padding-right: calc(30px - 2px);
+                        padding-bottom: calc(15px - 2px);
+                        padding-left: calc(30px - 2px)
+                    }
+                }
+
+                @media (max-width: 544px) {
+                    .wp-block-button.is-style-outline .wp-block-button__link {
+                        padding-top: calc(15px - 2px);
+                        padding-right: calc(30px - 2px);
+                        padding-bottom: calc(15px - 2px);
+                        padding-left: calc(30px - 2px)
+                    }
+                }
+
+                @media (min-width: 544px) {
+                    .entry-content>.alignleft {
+                        margin-right: 20px
+                    }
+
+                    .entry-content>.alignright {
+                        margin-left: 20px
+                    }
+
+                    .wp-block-group.has-background {
+                        padding: 20px
+                    }
+                }
+
+                @media (max-width: 921px) {
+
+                    .ast-separate-container .ast-article-post,
+                    .ast-separate-container .ast-article-single {
+                        padding: 1.5em 2.14em
+                    }
+
+                    .ast-separate-container #primary,
+                    .ast-separate-container #secondary {
+                        padding: 1.5em 0
+                    }
+
+                    #primary,
+                    #secondary {
+                        padding: 1.5em 0;
+                        margin: 0
+                    }
+
+                    .ast-left-sidebar #content>.ast-container {
+                        display: flex;
+                        flex-direction: column-reverse;
+                        width: 100%
+                    }
+
+                    .ast-author-box img.avatar {
+                        margin: 20px 0 0 0
+                    }
+                }
+
+                @media (min-width: 922px) {
+
+                    .ast-separate-container.ast-right-sidebar #primary,
+                    .ast-separate-container.ast-left-sidebar #primary {
+                        border: 0
+                    }
+
+                    .search-no-results.ast-separate-container #primary {
+                        margin-bottom: 4em
+                    }
+                }
+
+                .wp-block-button .wp-block-button__link,
+                {
+                color: #fff
+                }
+
+                .wp-block-button .wp-block-button__link:hover,
+                .wp-block-button .wp-block-button__link:focus {
+                    color: #fff;
+                    background-color: #234980;
+                    border-color: #234980
+                }
+
+                .wp-block-button .wp-block-button__link {
+                    border: none;
+                    background-color: #1969dc;
+                    color: #fff;
+                    font-family: inherit;
+                    font-weight: inherit;
+                    line-height: 1;
+                    border-radius: 10px;
+                    padding: 15px 30px
+                }
+
+                .wp-block-button.is-style-outline .wp-block-button__link {
+                    border-style: solid;
+                    border-top-width: 2px;
+                    border-right-width: 2px;
+                    border-left-width: 2px;
+                    border-bottom-width: 2px;
+                    border-color: #1969dc;
+                    padding-top: calc(15px - 2px);
+                    padding-right: calc(30px - 2px);
+                    padding-bottom: calc(15px - 2px);
+                    padding-left: calc(30px - 2px)
+                }
+
+                @media (max-width: 921px) {
+                    .wp-block-button .wp-block-button__link {
+                        border: none;
+                        padding: 15px 30px
+                    }
+
+                    .wp-block-button.is-style-outline .wp-block-button__link {
+                        padding-top: calc(15px - 2px);
+                        padding-right: calc(30px - 2px);
+                        padding-bottom: calc(15px - 2px);
+                        padding-left: calc(30px - 2px)
+                    }
+                }
+
+                @media (max-width: 544px) {
+                    .wp-block-button .wp-block-button__link {
+                        border: none;
+                        padding: 15px 30px
+                    }
+
+                    .wp-block-button.is-style-outline .wp-block-button__link {
+                        padding-top: calc(15px - 2px);
+                        padding-right: calc(30px - 2px);
+                        padding-bottom: calc(15px - 2px);
+                        padding-left: calc(30px - 2px)
+                    }
+                }
+
+                .menu-toggle,
+                button,
+                .ast-button,
+                .ast-custom-button,
+                .button,
+                input#submit,
+                input[type=\"button\"],
+                input[type=\"submit\"],
+                input[type=\"reset\"] {
+                    border-style: solid;
+                    border-top-width: 0;
+                    border-right-width: 0;
+                    border-left-width: 0;
+                    border-bottom-width: 0;
+                    color: #fff;
+                    border-color: #1969dc;
+                    background-color: #1969dc;
+                    border-radius: 10px;
+                    padding-top: 10px;
+                    padding-right: 40px;
+                    padding-bottom: 10px;
+                    padding-left: 40px;
+                    font-family: inherit;
+                    font-weight: inherit;
+                    line-height: 1
+                }
+
+                button:focus,
+                .menu-toggle:hover,
+                button:hover,
+                .ast-button:hover,
+                .ast-custom-button:hover .button:hover,
+                .ast-custom-button:hover,
+                input[type=reset]:hover,
+                input[type=reset]:focus,
+                input#submit:hover,
+                input#submit:focus,
+                input[type=\"button\"]:hover,
+                input[type=\"button\"]:focus,
+                input[type=\"submit\"]:hover,
+                input[type=\"submit\"]:focus {
+                    color: #fff;
+                    background-color: #234980;
+                    border-color: #234980
+                }
+
+                @media (min-width: 544px) {
+                    .ast-container {
+                        max-width: 100%
+                    }
+                }
+
+                @media (max-width: 544px) {
+
+                    .ast-separate-container .ast-article-post,
+                    .ast-separate-container .ast-article-single,
+                    .ast-separate-container .comments-title,
+                    .ast-separate-container .ast-archive-description {
+                        padding: 1.5em 1em
+                    }
+
+                    .ast-separate-container #content .ast-container {
+                        padding-left: .54em;
+                        padding-right: .54em
+                    }
+
+                    .ast-separate-container .ast-comment-list li.depth-1 {
+                        padding: 1.5em 1em;
+                        margin-bottom: 1.5em
+                    }
+
+                    .ast-separate-container .ast-comment-list .bypostauthor {
+                        padding: .5em
+                    }
+
+                    .ast-search-menu-icon.ast-dropdown-active .search-field {
+                        width: 170px
+                    }
+                }
+
+                @media (max-width: 921px) {
+                    .ast-mobile-header-stack .main-header-bar .ast-search-menu-icon {
+                        display: inline-block
+                    }
+
+                    .ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-stack .main-header-bar .ast-search-icon {
+                        margin: 0
+                    }
+
+                    .ast-comment-avatar-wrap img {
+                        max-width: 2.5em
+                    }
+
+                    .ast-separate-container .ast-comment-list li.depth-1 {
+                        padding: 1.5em 2.14em
+                    }
+
+                    .ast-separate-container .comment-respond {
+                        padding: 2em 2.14em
+                    }
+
+                    .ast-comment-meta {
+                        padding: 0 1.8888em 1.3333em
+                    }
+                }
+
+                @media (max-width: 921px) {
+                    .ast-archive-description .ast-archive-title {
+                        font-size: 40px
+                    }
+
+                    .entry-title {
+                        font-size: 30px
+                    }
+
+                    h1,
+                    .entry-content h1 {
+                        font-size: 30px
+                    }
+
+                    h2,
+                    .entry-content h2 {
+                        font-size: 25px
+                    }
+
+                    h3,
+                    .entry-content h3 {
+                        font-size: 20px
+                    }
+
+                    .ast-single-post .entry-title,
+                    .page-title {
+                        font-size: 30px
+                    }
+                }
+
+                @media (max-width: 544px) {
+                    .ast-archive-description .ast-archive-title {
+                        font-size: 40px
+                    }
+
+                    .entry-title {
+                        font-size: 30px
+                    }
+
+                    h1,
+                    .entry-content h1 {
+                        font-size: 30px
+                    }
+
+                    h2,
+                    .entry-content h2 {
+                        font-size: 25px
+                    }
+
+                    h3,
+                    .entry-content h3 {
+                        font-size: 20px
+                    }
+
+                    .ast-single-post .entry-title,
+                    .page-title {
+                        font-size: 30px
+                    }
+                }
+
+                @media (max-width: 921px) {
+                    html {
+                        font-size: 96.9%
+                    }
+                }
+
+                @media (max-width: 544px) {
+                    html {
+                        font-size: 96.9%
+                    }
+                }
+
+                @media (min-width: 922px) {
+                    .ast-container {
+                        max-width: 1240px
+                    }
+                }
+
+                @media (min-width: 922px) {
+
+                    .main-header-menu .sub-menu .menu-item.ast-left-align-sub-menu:hover>.sub-menu,
+                    .main-header-menu .sub-menu .menu-item.ast-left-align-sub-menu.focus>.sub-menu {
+                        margin-left: 0
+                    }
+                }
+
+                .ast-breadcrumbs .trail-browse,
+                .ast-breadcrumbs .trail-items,
+                .ast-breadcrumbs .trail-items li {
+                    display: inline-block;
+                    margin: 0;
+                    padding: 0;
+                    border: none;
+                    background: inherit;
+                    text-indent: 0
+                }
+
+                .ast-breadcrumbs .trail-browse {
+                    font-size: inherit;
+                    font-style: inherit;
+                    font-weight: inherit;
+                    color: inherit
+                }
+
+                .ast-breadcrumbs .trail-items {
+                    list-style: none
+                }
+
+                .trail-items li::after {
+                    padding: 0 .3em;
+                    content: \"\\00bb\"
+                }
+
+                .trail-items li:last-of-type::after {
+                    display: none
+                }
+
+                h1,
+                .entry-content h1,
+                h2,
+                .entry-content h2,
+                h3,
+                .entry-content h3,
+                h4,
+                .entry-content h4,
+                h5,
+                .entry-content h5,
+                h6,
+                .entry-content h6 {
+                    color: #1969dc
+                }
+
+                @media (max-width: 921px) {
+
+                    .ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-firstrow .ast-builder-grid-row>*:first-child,
+                    .ast-builder-grid-row-container.ast-builder-grid-row-tablet-3-lastrow .ast-builder-grid-row>*:last-child {
+                        grid-column: 1 \/ -1
+                    }
+                }
+
+                @media (max-width: 544px) {
+
+                    .ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-firstrow .ast-builder-grid-row>*:first-child,
+                    .ast-builder-grid-row-container.ast-builder-grid-row-mobile-3-lastrow .ast-builder-grid-row>*:last-child {
+                        grid-column: 1 \/ -1
+                    }
+                }
+
+                .ast-builder-layout-element[data-section=\"title_tagline\"] {
+                    display: flex
+                }
+
+                @media (max-width: 921px) {
+                    .ast-header-break-point .ast-builder-layout-element[data-section=\"title_tagline\"] {
+                        display: flex
+                    }
+                }
+
+                @media (max-width: 544px) {
+                    .ast-header-break-point .ast-builder-layout-element[data-section=\"title_tagline\"] {
+                        display: flex
+                    }
+                }
+
+                .ast-builder-menu-1 {
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 500
+                }
+
+                .ast-builder-menu-1 .sub-menu,
+                .ast-builder-menu-1 .inline-on-mobile .sub-menu {
+                    border-top-width: 2px;
+                    border-bottom-width: 0;
+                    border-right-width: 0;
+                    border-left-width: 0;
+                    border-color: #0274be;
+                    border-style: solid;
+                    border-radius: 0
+                }
+
+                .ast-builder-menu-1 .main-header-menu>.menu-item>.sub-menu,
+                .ast-builder-menu-1 .main-header-menu>.menu-item>.astra-full-megamenu-wrapper {
+                    margin-top: 0
+                }
+
+                .ast-desktop .ast-builder-menu-1 .main-header-menu>.menu-item>.sub-menu:before,
+                .ast-desktop .ast-builder-menu-1 .main-header-menu>.menu-item>.astra-full-megamenu-wrapper:before {
+                    height: calc(0px + 5px)
+                }
+
+                .ast-desktop .ast-builder-menu-1 .menu-item .sub-menu .menu-link {
+                    border-style: none
+                }
+
+                @media (max-width: 921px) {
+                    .ast-header-break-point .ast-builder-menu-1 .menu-item.menu-item-has-children>.ast-menu-toggle {
+                        top: 0
+                    }
+
+                    .ast-builder-menu-1 .menu-item-has-children>.menu-link:after {
+                        content: unset
+                    }
+                }
+
+                @media (max-width: 544px) {
+                    .ast-header-break-point .ast-builder-menu-1 .menu-item.menu-item-has-children>.ast-menu-toggle {
+                        top: 0
+                    }
+                }
+
+                .ast-builder-menu-1 {
+                    display: flex
+                }
+
+                @media (max-width: 921px) {
+                    .ast-header-break-point .ast-builder-menu-1 {
+                        display: flex
+                    }
+                }
+
+                @media (max-width: 544px) {
+                    .ast-header-break-point .ast-builder-menu-1 {
+                        display: flex
+                    }
+                }
+
+                .site-below-footer-wrap[data-section=\"section-below-footer-builder\"] {
+                    background-color: #eee;
+                    ;
+                    min-height: 80px
+                }
+
+                .site-below-footer-wrap[data-section=\"section-below-footer-builder\"] .ast-builder-grid-row {
+                    max-width: 1200px;
+                    margin-left: auto;
+                    margin-right: auto
+                }
+
+                .site-below-footer-wrap[data-section=\"section-below-footer-builder\"] .ast-builder-grid-row,
+                .site-below-footer-wrap[data-section=\"section-below-footer-builder\"] .site-footer-section {
+                    align-items: flex-start
+                }
+
+                .site-below-footer-wrap[data-section=\"section-below-footer-builder\"].ast-footer-row-inline .site-footer-section {
+                    display: flex;
+                    margin-bottom: 0
+                }
+
+                .ast-builder-grid-row-full .ast-builder-grid-row {
+                    grid-template-columns: 1fr
+                }
+
+                @media (max-width: 921px) {
+                    .site-below-footer-wrap[data-section=\"section-below-footer-builder\"].ast-footer-row-tablet-inline .site-footer-section {
+                        display: flex;
+                        margin-bottom: 0
+                    }
+
+                    .site-below-footer-wrap[data-section=\"section-below-footer-builder\"].ast-footer-row-tablet-stack .site-footer-section {
+                        display: block;
+                        margin-bottom: 10px
+                    }
+
+                    .ast-builder-grid-row-container.ast-builder-grid-row-tablet-full .ast-builder-grid-row {
+                        grid-template-columns: 1fr
+                    }
+                }
+
+                @media (max-width: 544px) {
+                    .site-below-footer-wrap[data-section=\"section-below-footer-builder\"].ast-footer-row-mobile-inline .site-footer-section {
+                        display: flex;
+                        margin-bottom: 0
+                    }
+
+                    .site-below-footer-wrap[data-section=\"section-below-footer-builder\"].ast-footer-row-mobile-stack .site-footer-section {
+                        display: block;
+                        margin-bottom: 10px
+                    }
+
+                    .ast-builder-grid-row-container.ast-builder-grid-row-mobile-full .ast-builder-grid-row {
+                        grid-template-columns: 1fr
+                    }
+                }
+
+                .site-below-footer-wrap[data-section=\"section-below-footer-builder\"] {
+                    display: grid
+                }
+
+                @media (max-width: 921px) {
+                    .ast-header-break-point .site-below-footer-wrap[data-section=\"section-below-footer-builder\"] {
+                        display: grid
+                    }
+                }
+
+                @media (max-width: 544px) {
+                    .ast-header-break-point .site-below-footer-wrap[data-section=\"section-below-footer-builder\"] {
+                        display: grid
+                    }
+                }
+
+                .ast-footer-copyright {
+                    text-align: center
+                }
+
+                .ast-footer-copyright {
+                    color: #3a3a3a
+                }
+
+                @media (max-width: 921px) {
+                    .ast-footer-copyright {
+                        text-align: center
+                    }
+                }
+
+                @media (max-width: 544px) {
+                    .ast-footer-copyright {
+                        text-align: center
+                    }
+                }
+
+                .ast-footer-copyright.ast-builder-layout-element {
+                    display: flex
+                }
+
+                @media (max-width: 921px) {
+                    .ast-header-break-point .ast-footer-copyright.ast-builder-layout-element {
+                        display: flex
+                    }
+                }
+
+                @media (max-width: 544px) {
+                    .ast-header-break-point .ast-footer-copyright.ast-builder-layout-element {
+                        display: flex
+                    }
+                }
+
+                .elementor-widget-heading .elementor-heading-title {
+                    margin: 0
+                }
+
+                .elementor-post.elementor-grid-item.hentry {
+                    margin-bottom: 0
+                }
+
+                .woocommerce div.product .elementor-element.elementor-products-grid .related.products ul.products li.product,
+                .elementor-element .elementor-wc-products .woocommerce[class*='columns-'] ul.products li.product {
+                    width: auto;
+                    margin: 0;
+                    float: none
+                }
+
+                .ast-left-sidebar .elementor-section.elementor-section-stretched,
+                .ast-right-sidebar .elementor-section.elementor-section-stretched {
+                    max-width: 100%;
+                    left: 0 !important
+                }
+
+                .elementor-template-full-width .ast-container {
+                    display: block
+                }
+
+                .ast-header-break-point .main-header-bar {
+                    border-bottom-width: 1px
+                }
+
+                @media (min-width: 922px) {
+                    .main-header-bar {
+                        border-bottom-width: 1px
+                    }
+                }
+
+                .ast-safari-browser-less-than-11 .main-header-menu .menu-item,
+                .ast-safari-browser-less-than-11 .main-header-bar .ast-masthead-custom-menu-items {
+                    display: block
+                }
+
+                .main-header-menu .menu-item,
+                #astra-footer-menu .menu-item,
+                .main-header-bar .ast-masthead-custom-menu-items {
+                    -js-display: flex;
+                    display: flex;
+                    -webkit-box-pack: center;
+                    -webkit-justify-content: center;
+                    -moz-box-pack: center;
+                    -ms-flex-pack: center;
+                    justify-content: center;
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                    -webkit-flex-direction: column;
+                    -moz-box-orient: vertical;
+                    -moz-box-direction: normal;
+                    -ms-flex-direction: column;
+                    flex-direction: column
+                }
+
+                .main-header-menu>.menu-item>.menu-link,
+                #astra-footer-menu>.menu-item>.menu-link {
+                    height: 100%;
+                    -webkit-box-align: center;
+                    -webkit-align-items: center;
+                    -moz-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    -js-display: flex;
+                    display: flex
+                }
+
+                .ast-primary-menu-disabled .main-header-bar .ast-masthead-custom-menu-items {
+                    flex: unset
+                }
+
+                .ast-header-break-point .main-navigation ul .menu-item .menu-link .icon-arrow:first-of-type svg {
+                    top: .2em;
+                    margin-top: 0;
+                    margin-left: 0;
+                    width: .65em;
+                    transform: translate(0, -2px) rotateZ(270deg)
+                }
+
+                .ast-mobile-popup-content .ast-submenu-expanded>.ast-menu-toggle {
+                    transform: rotateX(180deg)
+                }
+
+                .ast-mobile-header-content>*,
+                .ast-desktop-header-content>* {
+                    padding: 10px 0;
+                    height: auto
+                }
+
+                .ast-mobile-header-content>*:first-child,
+                .ast-desktop-header-content>*:first-child {
+                    padding-top: 10px
+                }
+
+                .ast-mobile-header-content>.ast-builder-menu,
+                .ast-desktop-header-content>.ast-builder-menu {
+                    padding-top: 0
+                }
+
+                .ast-mobile-header-content>*:last-child,
+                .ast-desktop-header-content>*:last-child {
+                    padding-bottom: 0
+                }
+
+                .ast-mobile-header-content .ast-search-menu-icon.ast-inline-search label,
+                .ast-desktop-header-content .ast-search-menu-icon.ast-inline-search label {
+                    width: 100%
+                }
+
+                .ast-desktop-header-content .main-header-bar-navigation .ast-submenu-expanded>.ast-menu-toggle::before {
+                    transform: rotateX(180deg)
+                }
+
+                #ast-desktop-header .ast-desktop-header-content,
+                .ast-mobile-header-content .ast-search-icon,
+                .ast-desktop-header-content .ast-search-icon,
+                .ast-off-canvas-active .ast-main-header-nav-open.ast-popup-nav-open .ast-mobile-header-wrap .ast-mobile-header-content,
+                .ast-mobile-header-wrap .ast-mobile-header-content,
+                .ast-main-header-nav-open.ast-popup-nav-open .ast-mobile-header-wrap .ast-mobile-header-content,
+                .ast-off-canvas-active .ast-main-header-nav-open.ast-popup-nav-open .ast-desktop-header-content,
+                .ast-main-header-nav-open.ast-popup-nav-open .ast-desktop-header-content {
+                    display: none
+                }
+
+                .ast-main-header-nav-open.ast-header-break-point #ast-desktop-header .ast-desktop-header-content,
+                .ast-main-header-nav-open.ast-header-break-point .ast-mobile-header-wrap .ast-mobile-header-content {
+                    display: block
+                }
+
+                .ast-desktop .ast-desktop-header-content .astra-menu-animation-slide-up>.menu-item>.sub-menu,
+                .ast-desktop .ast-desktop-header-content .astra-menu-animation-slide-up>.menu-item .menu-item>.sub-menu,
+                .ast-desktop .ast-desktop-header-content .astra-menu-animation-slide-down>.menu-item>.sub-menu,
+                .ast-desktop .ast-desktop-header-content .astra-menu-animation-slide-down>.menu-item .menu-item>.sub-menu,
+                .ast-desktop .ast-desktop-header-content .astra-menu-animation-fade>.menu-item>.sub-menu,
+                .ast-desktop .ast-desktop-header-content .astra-menu-animation-fade>.menu-item .menu-item>.sub-menu {
+                    opacity: 1;
+                    visibility: visible
+                }
+
+                .ast-hfb-header.ast-default-menu-enable.ast-header-break-point .ast-mobile-header-wrap .ast-mobile-header-content .main-header-bar-navigation {
+                    width: unset;
+                    margin: unset
+                }
+
+                .ast-mobile-header-content.content-align-flex-end .main-header-bar-navigation .menu-item-has-children>.ast-menu-toggle,
+                .ast-desktop-header-content.content-align-flex-end .main-header-bar-navigation .menu-item-has-children>.ast-menu-toggle {
+                    left: calc(20px - 0.907em)
+                }
+
+                .ast-mobile-header-content .ast-search-menu-icon,
+                .ast-mobile-header-content .ast-search-menu-icon.slide-search,
+                .ast-desktop-header-content .ast-search-menu-icon,
+                .ast-desktop-header-content .ast-search-menu-icon.slide-search {
+                    width: 100%;
+                    position: relative;
+                    display: block;
+                    right: auto;
+                    transform: none
+                }
+
+                .ast-mobile-header-content .ast-search-menu-icon.slide-search .search-form,
+                .ast-mobile-header-content .ast-search-menu-icon .search-form,
+                .ast-desktop-header-content .ast-search-menu-icon.slide-search .search-form,
+                .ast-desktop-header-content .ast-search-menu-icon .search-form {
+                    right: 0;
+                    visibility: visible;
+                    opacity: 1;
+                    position: relative;
+                    top: auto;
+                    transform: none;
+                    padding: 0;
+                    display: block;
+                    overflow: hidden
+                }
+
+                .ast-mobile-header-content .ast-search-menu-icon.ast-inline-search .search-field,
+                .ast-mobile-header-content .ast-search-menu-icon .search-field,
+                .ast-desktop-header-content .ast-search-menu-icon.ast-inline-search .search-field,
+                .ast-desktop-header-content .ast-search-menu-icon .search-field {
+                    width: 100%;
+                    padding-right: 5.5em
+                }
+
+                .ast-mobile-header-content .ast-search-menu-icon .search-submit,
+                .ast-desktop-header-content .ast-search-menu-icon .search-submit {
+                    display: block;
+                    position: absolute;
+                    height: 100%;
+                    top: 0;
+                    right: 0;
+                    padding: 0 1em;
+                    border-radius: 0
+                }
+
+                .ast-hfb-header.ast-default-menu-enable.ast-header-break-point .ast-mobile-header-wrap .ast-mobile-header-content .main-header-bar-navigation ul .sub-menu .menu-link {
+                    padding-left: 30px
+                }
+
+                .ast-hfb-header.ast-default-menu-enable.ast-header-break-point .ast-mobile-header-wrap .ast-mobile-header-content .main-header-bar-navigation .sub-menu .menu-item .menu-item .menu-link {
+                    padding-left: 40px
+                }
+
+                .ast-mobile-popup-drawer.active .ast-mobile-popup-inner {
+                    background-color: #fff
+                }
+
+                .ast-mobile-header-wrap .ast-mobile-header-content,
+                .ast-desktop-header-content {
+                    background-color: #fff
+                }
+
+                .ast-mobile-popup-content>*,
+                .ast-mobile-header-content>*,
+                .ast-desktop-popup-content>*,
+                .ast-desktop-header-content>* {
+                    padding-top: 0;
+                    padding-bottom: 0
+                }
+
+                .content-align-flex-start .ast-builder-layout-element {
+                    justify-content: flex-start
+                }
+
+                .content-align-flex-start .main-header-menu {
+                    text-align: left
+                }
+
+                .ast-mobile-popup-drawer.active .ast-mobile-popup-drawer.active .menu-toggle-close {
+                    color: #3a3a3a
+                }
+
+                .ast-mobile-header-wrap .ast-primary-header-bar,
+                .ast-primary-header-bar .site-primary-header-wrap {
+                    min-height: 70px
+                }
+
+                .ast-desktop .ast-primary-header-bar .main-header-menu>.menu-item {
+                    line-height: 70px
+                }
+
+                @media (max-width: 921px) {
+
+                    #masthead .ast-mobile-header-wrap .ast-above-header-bar,
+                    #masthead .ast-mobile-header-wrap .ast-primary-header-bar,
+                    #masthead .ast-mobile-header-wrap .ast-below-header-bar {
+                        padding-left: 20px;
+                        padding-right: 20px
+                    }
+                }
+
+                .ast-header-break-point .ast-primary-header-bar {
+                    border-bottom-width: 1px;
+                    border-bottom-color: #eaeaea;
+                    border-bottom-style: solid
+                }
+
+                @media (min-width: 922px) {
+                    .ast-primary-header-bar {
+                        border-bottom-width: 1px;
+                        border-bottom-color: #eaeaea;
+                        border-bottom-style: solid
+                    }
+                }
+
+                .ast-primary-header-bar {
+                    background-color: #fff
+                }
+
+                .ast-primary-header-bar {
+                    display: block
+                }
+
+                @media (max-width: 921px) {
+                    .ast-header-break-point .ast-primary-header-bar {
+                        display: grid
+                    }
+                }
+
+                @media (max-width: 544px) {
+                    .ast-header-break-point .ast-primary-header-bar {
+                        display: grid
+                    }
+                }
+
+                [data-section=\"section-header-mobile-trigger\"] .ast-button-wrap .ast-mobile-menu-trigger-minimal {
+                    color: #0274be;
+                    border: none;
+                    background: transparent
+                }
+
+                [data-section=\"section-header-mobile-trigger\"] .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg {
+                    width: 20px;
+                    height: 20px;
+                    fill: #0274be
+                }
+
+                [data-section=\"section-header-mobile-trigger\"] .ast-button-wrap .mobile-menu-wrap .mobile-menu {
+                    color: #0274be
+                }
+
+                .ast-builder-menu-mobile .main-navigation .menu-item>.menu-link {
+                    font-family: inherit;
+                    font-weight: inherit
+                }
+
+                .ast-builder-menu-mobile .main-navigation .menu-item.menu-item-has-children>.ast-menu-toggle {
+                    top: 0
+                }
+
+                .ast-builder-menu-mobile .main-navigation .menu-item-has-children>.menu-link:after {
+                    content: unset
+                }
+
+                .ast-hfb-header .ast-builder-menu-mobile .main-header-menu,
+                .ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .menu-link,
+                .ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link {
+                    border-style: none
+                }
+
+                .ast-builder-menu-mobile .main-navigation .menu-item.menu-item-has-children>.ast-menu-toggle {
+                    top: 0
+                }
+
+                @media (max-width: 921px) {
+                    .ast-builder-menu-mobile .main-navigation .menu-item.menu-item-has-children>.ast-menu-toggle {
+                        top: 0
+                    }
+
+                    .ast-builder-menu-mobile .main-navigation .menu-item-has-children>.menu-link:after {
+                        content: unset
+                    }
+                }
+
+                @media (max-width: 544px) {
+                    .ast-builder-menu-mobile .main-navigation .menu-item.menu-item-has-children>.ast-menu-toggle {
+                        top: 0
+                    }
+                }
+
+                .ast-builder-menu-mobile .main-navigation {
+                    display: block
+                }
+
+                @media (max-width: 921px) {
+                    .ast-header-break-point .ast-builder-menu-mobile .main-navigation {
+                        display: block
+                    }
+                }
+
+                @media (max-width: 544px) {
+                    .ast-header-break-point .ast-builder-menu-mobile .main-navigation {
+                        display: block
+                    }
+                }
+            </style>
+
+
+            <link rel="stylesheet" id="elementor-animations-css" href="static/css/animations.min.css" media="all">
+            <link rel="stylesheet" id="elementor-frontend-legacy-css" href="static/css/frontend-legacy.min.css" media="all">
+            <link rel="stylesheet" id="elementor-frontend-css" href="static/css/frontend.min.css" media="all">
+            <style id="elementor-frontend-inline-css">
+                .ha-css-transform-yes {
+                    -webkit-transition-duration: var(--ha-tfx-transition-duration, .2s);
+                    transition-duration: var(--ha-tfx-transition-duration, .2s);
+                    -webkit-transition-property: -webkit-transform;
+                    transition-property: transform;
+                    transition-property: transform, -webkit-transform;
+                    -webkit-transform: translate(var(--ha-tfx-translate-x, 0), var(--ha-tfx-translate-y, 0)) scale(var(--ha-tfx-scale-x, 1), var(--ha-tfx-scale-y, 1)) skew(var(--ha-tfx-skew-x, 0), var(--ha-tfx-skew-y, 0)) rotateX(var(--ha-tfx-rotate-x, 0)) rotateY(var(--ha-tfx-rotate-y, 0)) rotateZ(var(--ha-tfx-rotate-z, 0));
+                    transform: translate(var(--ha-tfx-translate-x, 0), var(--ha-tfx-translate-y, 0)) scale(var(--ha-tfx-scale-x, 1), var(--ha-tfx-scale-y, 1)) skew(var(--ha-tfx-skew-x, 0), var(--ha-tfx-skew-y, 0)) rotateX(var(--ha-tfx-rotate-x, 0)) rotateY(var(--ha-tfx-rotate-y, 0)) rotateZ(var(--ha-tfx-rotate-z, 0))
+                }
+
+                .ha-css-transform-yes:hover {
+                    -webkit-transform: translate(var(--ha-tfx-translate-x-hover, var(--ha-tfx-translate-x, 0)), var(--ha-tfx-translate-y-hover, var(--ha-tfx-translate-y, 0))) scale(var(--ha-tfx-scale-x-hover, var(--ha-tfx-scale-x, 1)), var(--ha-tfx-scale-y-hover, var(--ha-tfx-scale-y, 1))) skew(var(--ha-tfx-skew-x-hover, var(--ha-tfx-skew-x, 0)), var(--ha-tfx-skew-y-hover, var(--ha-tfx-skew-y, 0))) rotateX(var(--ha-tfx-rotate-x-hover, var(--ha-tfx-rotate-x, 0))) rotateY(var(--ha-tfx-rotate-y-hover, var(--ha-tfx-rotate-y, 0))) rotateZ(var(--ha-tfx-rotate-z-hover, var(--ha-tfx-rotate-z, 0)));
+                    transform: translate(var(--ha-tfx-translate-x-hover, var(--ha-tfx-translate-x, 0)), var(--ha-tfx-translate-y-hover, var(--ha-tfx-translate-y, 0))) scale(var(--ha-tfx-scale-x-hover, var(--ha-tfx-scale-x, 1)), var(--ha-tfx-scale-y-hover, var(--ha-tfx-scale-y, 1))) skew(var(--ha-tfx-skew-x-hover, var(--ha-tfx-skew-x, 0)), var(--ha-tfx-skew-y-hover, var(--ha-tfx-skew-y, 0))) rotateX(var(--ha-tfx-rotate-x-hover, var(--ha-tfx-rotate-x, 0))) rotateY(var(--ha-tfx-rotate-y-hover, var(--ha-tfx-rotate-y, 0))) rotateZ(var(--ha-tfx-rotate-z-hover, var(--ha-tfx-rotate-z, 0)))
+                }
+
+                .happy-addon>.elementor-widget-container {
+                    word-wrap: break-word;
+                    overflow-wrap: break-word;
+                    box-sizing: border-box
+                }
+
+                .happy-addon>.elementor-widget-container * {
+                    box-sizing: border-box
+                }
+
+                .happy-addon p:empty {
+                    display: none
+                }
+
+                .happy-addon .elementor-inline-editing {
+                    min-height: auto !important
+                }
+
+                .happy-addon-pro img {
+                    max-width: 100%;
+                    height: auto;
+                    object-fit: cover
+                }
+
+                .ha-screen-reader-text {
+                    position: absolute;
+                    overflow: hidden;
+                    clip: rect(1px, 1px, 1px, 1px);
+                    margin: -1px;
+                    padding: 0;
+                    width: 1px;
+                    height: 1px;
+                    border: 0;
+                    word-wrap: normal !important;
+                    -webkit-clip-path: inset(50%);
+                    clip-path: inset(50%)
+                }
+
+                .ha-has-bg-overlay>.elementor-widget-container {
+                    position: relative;
+                    z-index: 1
+                }
+
+                .ha-has-bg-overlay>.elementor-widget-container:before {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    width: 100%;
+                    height: 100%;
+                    content: ""
+                }
+
+                .ha-popup--is-enabled .ha-js-popup,
+                .ha-popup--is-enabled .ha-js-popup img {
+                    cursor: -webkit-zoom-in !important;
+                    cursor: zoom-in !important
+                }
+
+                .mfp-wrap .mfp-arrow,
+                .mfp-wrap .mfp-close {
+                    background-color: transparent
+                }
+
+                .mfp-wrap .mfp-arrow:focus,
+                .mfp-wrap .mfp-close:focus {
+                    outline-width: thin
+                }
+
+                .ha-particle-wrapper {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%
+                }
+            </style>
+            <link rel="stylesheet" id="elementor-post-7-css" href="static/css/post-7.css" media="all">
+            <link rel="stylesheet" id="elementor-global-css" href="static/css/global.css" media="all">
+            <link rel="stylesheet" id="elementor-post-12-css" href="static/css/post-12.css" media="all">
+            <link rel="stylesheet" id="happy-elementor-addons-12-css" href="static/css/ha-12.css" media="all">
+            <link rel="stylesheet" id="elementor-icons-shared-0-css" href="static/css/fontawesome.min.css" media="all">
+            <style>
+                .main {
+                    padding: 0;
+                    padding-bottom: 40px;
+                }
+            </style>
+            <div itemscope="itemscope" class="home page-template-default page page-id-12 wp-custom-logo ast-single-post ast-inherit-site-logo-transparent ast-hfb-header ast-page-builder-template ast-no-sidebar astra-3.4.7 elementor-default elementor-kit-7 elementor-page elementor-page-12 ast-desktop" data-elementor-device-mode="desktop" style="">
+                <div class="hfeed site" id="page">
+                    <div id="content" class="site-content">
+                        <div class="ast-container">
+                            <div id="primary" class="content-area primary">
+                                <main id="main" class="site-main">
+                                    <article class="post-12 page type-page status-publish ast-article-single" id="post-12" itemtype="https://schema.org/CreativeWork" itemscope="itemscope">
+                                        <header class="entry-header ast-header-without-markup"></header>
+
+                                        <div class="entry-content clear" itemprop="text">
+                                            <div data-elementor-type="wp-page" data-elementor-id="12" class="elementor elementor-12" data-elementor-settings="[]">
+                                                <div class="elementor-inner">
+                                                    <div class="elementor-section-wrap">
+                                                        <section class="elementor-section elementor-top-section elementor-element elementor-element-3ec30dbc elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3ec30dbc" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}">
+                                                            <div class="elementor-container elementor-column-gap-default">
+                                                                <div class="elementor-row">
+                                                                    <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-44097fd" data-id="44097fd" data-element_type="column">
+                                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                                            <div class="elementor-widget-wrap">
+                                                                                <div class="elementor-element elementor-element-6722c069 elementor-widget elementor-widget-heading" data-id="6722c069" data-element_type="widget" data-widget_type="heading.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <h2 class="elementor-heading-title elementor-size-default" style="font-size: 40px">
+                                                                                            The best way to get rich, one step closer to success</h2>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="elementor-element elementor-element-183ef7f2 elementor-widget elementor-widget-text-editor" data-id="183ef7f2" data-element_type="widget" data-widget_type="text-editor.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="elementor-text-editor elementor-clearfix">
+                                                                                            <p>In 2025, more than 1000,000 friends have joined us,
+                                                                                                and they can already use the new way of making money at home,
+                                                                                                which has successfully improved family life. what are you waiting for?</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <section class="elementor-section elementor-inner-section elementor-element elementor-element-bce23bb elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="bce23bb" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
+                                                                                    <div class="elementor-container elementor-column-gap-default">
+                                                                                        <div class="elementor-row">
+                                                                                            <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-2461525" data-id="2461525" data-element_type="column">
+                                                                                                <div class="elementor-column-wrap elementor-element-populated">
+                                                                                                    <div class="elementor-widget-wrap">
+                                                                                                        <div class="elementor-element elementor-element-ec61ddc elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="ec61ddc" data-element_type="widget" data-widget_type="icon-list.default">
+                                                                                                            <div class="elementor-widget-container">
+                                                                                                                <ul class="elementor-icon-list-items">
+                                                                                                                    <li class="elementor-icon-list-item">
+                                                                                                                        <span class="elementor-icon-list-icon">
+                                                                                                                            <i aria-hidden="true" class="fas">
+                                                                                                                                <img src="static/picture/yes.png" alt="">
+                                                                                                                            </i>
+                                                                                                                        </span>
+                                                                                                                        <span class="elementor-icon-list-text">100% Money-making</span>
+                                                                                                                    </li>
+                                                                                                                    <li class="elementor-icon-list-item">
+                                                                                                                        <span class="elementor-icon-list-icon">
+                                                                                                                            <i aria-hidden="true" class="fas">
+                                                                                                                                <img src="static/picture/yes.png" alt="">
+                                                                                                                            </i>
+                                                                                                                        </span>
+                                                                                                                        <span class="elementor-icon-list-text">Funds Withdrawable Anytime</span>
+                                                                                                                    </li>
+                                                                                                                </ul>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-559133e" data-id="559133e" data-element_type="column">
+                                                                                                <div class="elementor-column-wrap elementor-element-populated">
+                                                                                                    <div class="elementor-widget-wrap">
+                                                                                                        <div class="elementor-element elementor-element-23430ac elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="23430ac" data-element_type="widget" data-widget_type="icon-list.default">
+                                                                                                            <div class="elementor-widget-container">
+                                                                                                                <ul class="elementor-icon-list-items">
+                                                                                                                    <li class="elementor-icon-list-item">
+                                                                                                                        <span class="elementor-icon-list-icon">
+                                                                                                                            <i aria-hidden="true" class="fas">
+                                                                                                                                <img src="static/picture/yes.png" alt="">
+                                                                                                                            </i>
+                                                                                                                        </span>
+                                                                                                                        <span class="elementor-icon-list-text">Professional investment advisor</span>
+                                                                                                                    </li>
+                                                                                                                    <li class="elementor-icon-list-item">
+                                                                                                                        <span class="elementor-icon-list-icon">
+                                                                                                                            <i aria-hidden="true" class="fas">
+                                                                                                                                <img src="static/picture/yes.png" alt="">
+                                                                                                                            </i>
+                                                                                                                        </span>
+                                                                                                                        <span class="elementor-icon-list-text">Consult now and start making money</span>
+                                                                                                                    </li>
+                                                                                                                </ul>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </section>
+                                                                                <div class="elementor-element elementor-element-f62e80c elementor-mobile-align-center elementor-align-left elementor-widget elementor-widget-button animated jump tada" data-id="f62e80c" data-element_type="widget" data-settings="{&quot;motion_fx_motion_fx_mouse&quot;:&quot;yes&quot;,&quot;_animation&quot;:&quot;tada&quot;}" data-widget_type="button.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="elementor-button-wrapper">
+                                                                                            <a onclick="setDomVisible('intBgDiv', 'flex')" class="elementor-button elementor-size-md" role="button">
+                                                                                                <span class="elementor-button-content-wrapper">
+                                                                                                    <span class="elementor-button-icon elementor-align-icon-left">
+                                                                                                        <i aria-hidden="true" class="fab" style="width: 40px;">
+                                                                                                            <img src="static/picture/small-whatsapp.gif" alt="">
+                                                                                                        </i>
+                                                                                                    </span>
+                                                                                                    <span class="elementor-button-text">
+                                                                                                        <div style="padding-top: 8px; color: black">Add WHATSAPP</div>
+                                                                                                    </span>
+                                                                                                </span>
+                                                                                            </a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-73482e82" data-id="73482e82" data-element_type="column">
+                                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                                            <div class="elementor-widget-wrap">
+                                                                                <div class="elementor-element elementor-element-5d675107 ha-css-transform-yes elementor-widget elementor-widget-image" data-id="5d675107" data-element_type="widget" data-widget_type="image.default">
+                                                                                    <div class="elementor-widget-container jump">
+                                                                                        <div class="elementor-image">
+                                                                                            <img width="812" height="1024" src="static/picture/ghas-in1.jpg" class="attachment-large size-large" alt="" loading="lazy" sizes="(max-width: 812px) 100vw, 812px">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                        <section class="elementor-section elementor-top-section elementor-element elementor-element-2fd4b483 elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2fd4b483" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
+                                                            <div class="elementor-container elementor-column-gap-default">
+                                                                <div class="elementor-row">
+                                                                    <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-5dfa203" data-id="5dfa203" data-element_type="column">
+                                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                                            <div class="elementor-widget-wrap">
+                                                                                <div class="elementor-element elementor-element-c1f92e5 elementor-arrows-position-inside elementor-pagination-position-outside elementor-widget elementor-widget-image-carousel" data-id="c1f92e5" data-element_type="widget" data-settings="{&quot;slides_to_show&quot;:&quot;1&quot;,&quot;slides_to_show_mobile&quot;:&quot;1&quot;,&quot;navigation&quot;:&quot;both&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;effect&quot;:&quot;slide&quot;,&quot;speed&quot;:500}" data-widget_type="image-carousel.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="elementor-image-carousel-wrapper swiper-container swiper-container-initialized swiper-container-horizontal" dir="ltr">
+                                                                                            <div class="elementor-image-carousel swiper-wrapper swiper-image-stretch" style="transform: translate3d(-1650px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="3" style="width: 550px;">
+                                                                                                    <figure class="swiper-slide-inner">
+                                                                                                        <img class="swiper-slide-image" src="static/picture/banner_ms_4.webp" alt="d1">
+                                                                                                    </figure>
+                                                                                                </div>
+                                                                                                
+                                                                                                <div class="swiper-slide" data-swiper-slide-index="0" style="width: 550px;">
+                                                                                                    <figure class="swiper-slide-inner">
+                                                                                                        <img class="swiper-slide-image" src="static/picture/banner_ms_2_1.jpeg" alt="b2">
+                                                                                                    </figure>
+                                                                                                </div>
+                                                                                                <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="1" style="width: 550px;">
+                                                                                                    <figure class="swiper-slide-inner">
+                                                                                                        <img class="swiper-slide-image" src="static/picture/banner_ms_1.jpeg" alt="b5">
+                                                                                                    </figure>
+                                                                                                </div>
+                                                                                                <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="2" style="width: 550px;">
+                                                                                                    <figure class="swiper-slide-inner">
+                                                                                                        <img class="swiper-slide-image" src="static/picture/banner_ms_3.jpeg" alt="b7">
+                                                                                                    </figure>
+                                                                                                </div>
+                                                                                                <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="3" style="width: 550px;">
+                                                                                                    <figure class="swiper-slide-inner">
+                                                                                                        <img class="swiper-slide-image" src="static/picture/banner_ms_4.webp" alt="d1">
+                                                                                                    </figure>
+                                                                                                </div>
+                                                                                                
+                                                                                            <div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" style="width: 550px;">
+                                                                                                    <figure class="swiper-slide-inner">
+                                                                                                        <img class="swiper-slide-image" src="static/picture/banner_ms_2_1.jpeg" alt="b2">
+                                                                                                    </figure>
+                                                                                                </div></div>
+                                                                                            <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span></div>
+                                                                                            <div class="elementor-swiper-button elementor-swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide">
+                                                                                                <i aria-hidden="true">
+                                                                                                    <img src="static/picture/left.png" style="width: 15%;" alt="">
+                                                                                                </i>
+                                                                                                <span class="elementor-screen-only">Previous</span>
+                                                                                            </div>
+                                                                                            <div class="elementor-swiper-button elementor-swiper-button-next" tabindex="0" role="button" aria-label="Next slide" style="right: -175px;">
+                                                                                                <i aria-hidden="true">
+                                                                                                    <img src="static/picture/right.png" style="width: 15%;" alt="">
+                                                                                                </i>
+                                                                                                <span class="elementor-screen-only">Next</span>
+                                                                                            </div>
+                                                                                            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                                                                                            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                                                                                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-1cb313e4" data-id="1cb313e4" data-element_type="column">
+                                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                                            <div class="elementor-widget-wrap">
+                                                                                <div class="elementor-element elementor-element-968dfa7 elementor-widget elementor-widget-heading" data-id="968dfa7" data-element_type="widget" data-widget_type="heading.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <h2 class="elementor-heading-title elementor-size-default">
+                                                                                            Making money for you for free is a lie, the right choice is the key to making money</h2>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="elementor-element elementor-element-4d603a54 elementor-widget elementor-widget-text-editor" data-id="4d603a54" data-element_type="widget" data-widget_type="text-editor.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="elementor-text-editor elementor-clearfix">
+                                                                                            Choose the right way to make money, choose the right path,
+                                                                                            only hard work can be successful, from now on, change the status quo.
+                                                                                            If you are not satisfied with your current life or want to change your own life, 
+                                                                                            <a onclick="setDomVisible('intBgDiv', 'flex')" style="color: red">please join our online platform</a>and
+                                                                                            believe that our lives have changed. which is as simple as playing a game, and you can
+                                                                                            earn more money. Add our Whatsapp, you have a chance to become a rich man.
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                        <section class="elementor-section elementor-top-section elementor-element elementor-element-b947e31 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b947e31" data-element_type="section" id="aboutus" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
+                                                            <div class="elementor-container elementor-column-gap-default">
+                                                                <div class="elementor-row">
+                                                                    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-e02aaa0" data-id="e02aaa0" data-element_type="column">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                        <section class="elementor-section elementor-top-section elementor-element elementor-element-559e8a09 elementor-section-height-default elementor-section-boxed elementor-section-height-default" data-id="559e8a09" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}">
+                                                            <div class="elementor-container elementor-column-gap-default">
+                                                                <div class="elementor-row">
+                                                                    <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-46308f64" data-id="46308f64" data-element_type="column">
+                                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                                            <div class="elementor-widget-wrap">
+                                                                                <div class="elementor-element elementor-element-3a0add5b ha-infobox-media-dir-top elementor-widget elementor-widget-ha-infobox happy-addon ha-infobox" data-id="3a0add5b" data-element_type="widget" data-widget_type="ha-infobox.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <figure class="ha-infobox-figure ha-infobox-figure--image">
+                                                                                            <img width="512" height="512" src="static/picture/small-whatsapp.gif" class="elementor-animation-disable-animation attachment-medium_large size-medium_large" alt="" loading="lazy" sizes="(max-width: 512px) 100vw, 512px">
+                                                                                        </figure>
+                                                                                        <div class="ha-infobox-body">
+                                                                                            <h2 class="ha-infobox-title">Contact Us</h2>
+                                                                                            <div class="ha-infobox-text">
+                                                                                                <p>We will share all the details of how we make money. All you need to do is to leave us a message on WHATSAPP.</p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-39bb7bd1" data-id="39bb7bd1" data-element_type="column">
+                                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                                            <div class="elementor-widget-wrap">
+                                                                                <div class="elementor-element elementor-element-d79cd84 ha-infobox-media-dir-top elementor-widget elementor-widget-ha-infobox happy-addon ha-infobox" data-id="d79cd84" data-element_type="widget" data-widget_type="ha-infobox.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <figure class="ha-infobox-figure ha-infobox-figure--image">
+                                                                                            <img width="512" height="512" src="static/picture/dollar.png" class="elementor-animation-disable-animation attachment-medium_large size-medium_large" alt="" loading="lazy" sizes="(max-width: 512px) 100vw, 512px">
+                                                                                        </figure>
+                                                                                        <div class="ha-infobox-body">
+                                                                                            <h2 class="ha-infobox-title">Credible Earnings</h2>
+                                                                                            <div class="ha-infobox-text">
+                                                                                                <p>You only need a small investment, you can earn a stable and reliable daily income at home, get rich and improve your life.</p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-5bb01cd2" data-id="5bb01cd2" data-element_type="column">
+                                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                                            <div class="elementor-widget-wrap">
+                                                                                <div class="elementor-element elementor-element-8f24ead ha-infobox-media-dir-top elementor-widget elementor-widget-ha-infobox happy-addon ha-infobox" data-id="8f24ead" data-element_type="widget" data-widget_type="ha-infobox.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <figure style="text-align: center">
+                                                                                            <img style="width: 120px; height: 60px" src="static/picture/google-premier-partner.png" class="elementor-animation-disable-animation attachment-medium_large size-medium_large" alt="" loading="lazy" sizes="(max-width: 512px) 100vw, 512px">
+                                                                                        </figure>
+                                                                                        <div class="ha-infobox-body">
+                                                                                            <h2 class="ha-infobox-title">Google certification</h2>
+                                                                                            <div class="ha-infobox-text">
+                                                                                                <p>We are not a bunch of scammers who intend to misuse your information.
+                                                                                                    We intent to help you get rich sincerely.
+                                                                                                </p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                        <section class="elementor-section elementor-top-section elementor-element elementor-element-299fd02 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="299fd02" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
+                                                            <div class="elementor-container elementor-column-gap-default">
+                                                                <div class="elementor-row">
+                                                                    <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-7eab3bc" data-id="7eab3bc" data-element_type="column">
+                                                                        <div class="elementor-column-wrap">
+                                                                            <div class="elementor-widget-wrap"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-973898e" data-id="973898e" data-element_type="column">
+                                                                        <div class="elementor-column-wrap">
+                                                                            <div class="elementor-widget-wrap"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                        <section style="background-color: white" class="elementor-section elementor-top-section elementor-element elementor-element-59fb407c elementor-section-height-min-height elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="59fb407c" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}">
+                                                            <div class="elementor-background-overlay"></div>
+                                                            <div class="elementor-container elementor-column-gap-default">
+                                                                <div class="elementor-row">
+                                                                    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-34f5a36f" data-id="34f5a36f" data-element_type="column">
+                                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                                            <div class="elementor-widget-wrap">
+                                                                                <div class="elementor-element elementor-element-22e4389e elementor-widget elementor-widget-heading" data-id="22e4389e" data-element_type="widget" data-widget_type="heading.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <h2 class="elementor-heading-title elementor-size-default">tips</h2><br>
+                                                                                        <img style="width: 120px; height: 60px;" src="static/picture/google-premier-partner.png">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="elementor-element elementor-element-18319b64 elementor-widget elementor-widget-text-editor" data-id="18319b64" data-element_type="widget" data-widget_type="text-editor.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="elementor-text-editor elementor-clearfix">
+                                                                                            <p style="color: red; font-size: 20px">
+                                                                                                <strong>Dear users, Hello! Our company is Google's official in-depth partner and a responsible company certified by Google.
+                                                                                                    Remind you that this project has a certain social nature. As young people under the age of 25
+                                                                                                    lack the corresponding social experience and funds, according to Google’s policy requirements, 
+                                                                                                    in order to protect the rights and interests of you and every user, please do not add WhatsApp if you do not meet this
+                                                                                                    condition. Our customer service will not provide you with any guidance and services. Thanks!
+                                                                                                </strong>
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="elementor-element elementor-element-f62e80c elementor-mobile-align-center elementor-align-left elementor-widget elementor-widget-button animated jump tada" data-id="f62e80c" data-element_type="widget" data-settings="{&quot;motion_fx_motion_fx_mouse&quot;:&quot;yes&quot;,&quot;_animation&quot;:&quot;tada&quot;}" data-widget_type="button.default" style="text-align: center;">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="elementor-button-wrapper">
+                                                                                            <a style="background-color: #8ac8e4" onclick="setDomVisible('intBgDiv', 'flex')" class="elementor-button elementor-size-md" role="button">
+                                                                                                <span class="elementor-button-content-wrapper">
+                                                                                                    <span class="elementor-button-icon elementor-align-icon-left">
+                                                                                                        <i aria-hidden="true" class="fab" style="width: 40px;">
+                                                                                                            <img src="static/picture/small-whatsapp.gif" alt="">
+                                                                                                        </i>
+                                                                                                    </span>
+                                                                                                    <span class="elementor-button-text">
+                                                                                                        <div style="padding-top: 8px; color: black">Add WHATSAPP</div>
+                                                                                                    </span>
+                                                                                                </span>
+                                                                                            </a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                        <section style="background-color: #dae8fe" class="elementor-section elementor-top-section elementor-element elementor-element-37813b2e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="37813b2e" data-element_type="section" id="whyus" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
+                                                            <div class="elementor-container elementor-column-gap-default">
+                                                                <div class="elementor-row">
+                                                                    <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-4f41cfb7" data-id="4f41cfb7" data-element_type="column">
+                                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                                            <div class="elementor-widget-wrap">
+                                                                                <div class="elementor-element elementor-element-72c76479 elementor-widget elementor-widget-heading" data-id="72c76479" data-element_type="widget" data-widget_type="heading.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <h2 class="elementor-heading-title elementor-size-default">
+                                                                                            Making money is not a difficult task</h2>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="elementor-element elementor-element-fab334a elementor-widget elementor-widget-text-editor" data-id="fab334a" data-element_type="widget" data-widget_type="text-editor.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="elementor-text-editor elementor-clearfix">
+                                                                                            <p>Just like a lucky charm that brings you good luck,
+                                                                                                your smartphone will become a talisman that gives you money. 
+                                                                                                It’s always in your pocket and you don’t know how much money it can make.
+                                                                                                With our best way to make money, we will turn your mobile phone into a portable gold mine.</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-14a93a58" data-id="14a93a58" data-element_type="column">
+                                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                                            <div class="elementor-widget-wrap">
+                                                                                <div class="elementor-element elementor-element-bfff8ed elementor-position-left elementor-hidden-phone elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="bfff8ed" data-element_type="widget" data-widget_type="icon-box.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="elementor-icon-box-wrapper">
+                                                                                            <div class="elementor-icon-box-icon">
+                                                                                                <span class="elementor-icon elementor-animation-grow">
+                                                                                                    <i aria-hidden="true" class="fas">
+                                                                                                        <img src="static/picture/blue-yes.png" alt="">
+                                                                                                    </i>
+                                                                                                </span>
+                                                                                            </div>
+                                                                                            <div class="elementor-icon-box-content">
+                                                                                                <h3 class="elementor-icon-box-title" style="font-size:18px;color: red;">
+                                                                                                    <span>Must be aged over 25</span>
+                                                                                                </h3>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="elementor-element elementor-element-cf850e5 elementor-position-left elementor-hidden-phone elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="cf850e5" data-element_type="widget" data-widget_type="icon-box.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="elementor-icon-box-wrapper">
+                                                                                            <div class="elementor-icon-box-icon">
+                                                                                                <span class="elementor-icon elementor-animation-grow">
+                                                                                                    <i aria-hidden="true" class="fas">
+                                                                                                        <img src="static/picture/blue-yes.png" alt="">
+                                                                                                    </i>
+                                                                                                </span>
+                                                                                            </div>
+                                                                                            <div class="elementor-icon-box-content">
+                                                                                                <h3 class="elementor-icon-box-title" style="font-size:18px;color: red;">
+                                                                                                    <span>Have a steady job</span>
+                                                                                                </h3>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="elementor-element elementor-element-3c1365d7 elementor-position-left elementor-hidden-phone elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="3c1365d7" data-element_type="widget" data-widget_type="icon-box.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="elementor-icon-box-wrapper">
+                                                                                            <div class="elementor-icon-box-icon">
+                                                                                                <span class="elementor-icon elementor-animation-grow">
+                                                                                                    <i aria-hidden="true" class="fas">
+                                                                                                        <img src="static/picture/blue-yes.png" alt="">
+                                                                                                    </i>
+                                                                                                </span>
+                                                                                            </div>
+                                                                                            <div class="elementor-icon-box-content">
+                                                                                                <h3 class="elementor-icon-box-title" style="font-size:18px;color: red;">
+                                                                                                    <span>Have your own debit card</span>
+                                                                                                </h3>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="elementor-element elementor-element-007eb30 elementor-hidden-desktop elementor-hidden-tablet elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="007eb30" data-element_type="widget" data-widget_type="icon-list.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <ul class="elementor-icon-list-items">
+                                                                                            <li class="elementor-icon-list-item">
+                                                                                                <span class="elementor-icon-list-icon">
+                                                                                                    <i aria-hidden="true" class="fas">
+                                                                                                        <img src="static/picture/blue-yes.png" alt="">
+                                                                                                    </i>
+                                                                                                </span>
+                                                                                                <span class="elementor-icon-list-text" style="color: red;">Must be aged over 25
+                                                                                                </span>
+                                                                                            </li>
+                                                                                            <li class="elementor-icon-list-item">
+                                                                                                <span class="elementor-icon-list-icon">
+                                                                                                    <i aria-hidden="true" class="fas">
+                                                                                                        <img src="static/picture/blue-yes.png" alt="">
+                                                                                                    </i>
+                                                                                                </span>
+                                                                                                <span class="elementor-icon-list-text" style="color: red;">Have a steady job</span>
+                                                                                            </li>
+                                                                                            <li class="elementor-icon-list-item">
+                                                                                                <span class="elementor-icon-list-icon">
+                                                                                                    <i aria-hidden="true" class="fas">
+                                                                                                        <img src="static/picture/blue-yes.png" alt="">
+                                                                                                    </i>
+                                                                                                </span>
+                                                                                                <span class="elementor-icon-list-text" style="color: red;">Have your own debit card</span>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                        <section class="elementor-section elementor-top-section elementor-element elementor-element-ee55617 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ee55617" data-element_type="section" data-settings="{&quot;_ha_eqh_enable&quot;:false}">
+                                                            <div class="elementor-container elementor-column-gap-default">
+                                                                <div class="elementor-row">
+                                                                    <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-aed0243" data-id="aed0243" data-element_type="column">
+                                                                        <div class="elementor-column-wrap">
+                                                                            <div class="elementor-widget-wrap"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-04ea241 animated tada" data-id="04ea241" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;motion_fx_motion_fx_mouse&quot;:&quot;yes&quot;,&quot;animation&quot;:&quot;tada&quot;}">
+                                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                                            <div class="elementor-widget-wrap">
+                                                                                <div class="elementor-element elementor-element-63b28da elementor-view-default elementor-widget elementor-widget-icon" data-id="63b28da" data-element_type="widget" data-widget_type="icon.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="elementor-icon-wrapper">
+                                                                                            <div class="elementor-icon">
+                                                                                                <i aria-hidden="true" class="fab">
+                                                                                                    <img src="static/picture/small-whatsapp.gif" alt="">
+                                                                                                </i>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="elementor-element elementor-element-73830bd elementor-widget elementor-widget-heading" data-id="73830bd" data-element_type="widget" data-widget_type="heading.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <h2 class="elementor-heading-title elementor-size-default">Contact Us on WHATSAPP</h2>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="elementor-element elementor-element-f62e80c elementor-mobile-align-center elementor-align-left elementor-widget elementor-widget-button animated jump tada" data-id="f62e80c" data-element_type="widget" data-settings="{&quot;motion_fx_motion_fx_mouse&quot;:&quot;yes&quot;,&quot;_animation&quot;:&quot;tada&quot;}" data-widget_type="button.default" style="text-align: center;">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="elementor-button-wrapper">
+                                                                                            <a style="background-color: #8bcae5" onclick="setDomVisible('intBgDiv', 'flex')" class="elementor-button elementor-size-md" role="button">
+                                                                                                <span class="elementor-button-content-wrapper">
+                                                                                                    <span class="elementor-button-icon elementor-align-icon-left">
+                                                                                                        <i aria-hidden="true" class="fab" style="width: 40px;">
+                                                                                                            <img src="static/picture/small-whatsapp.gif" alt="">
+                                                                                                        </i>
+                                                                                                    </span>
+                                                                                                    <span class="elementor-button-text">
+                                                                                                        <div style="padding-top: 8px; color: black">Add WHATSAPP</div>
+                                                                                                    </span>
+                                                                                                </span>
+                                                                                            </a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-eac8c97" data-id="eac8c97" data-element_type="column">
+                                                                        <div class="elementor-column-wrap">
+                                                                            <div class="elementor-widget-wrap"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                        <section class="elementor-section elementor-top-section elementor-element elementor-element-336d4275 elementor-section-height-min-height elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="336d4275" data-element_type="section" id="feedback" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}">
+                                                            <div class="elementor-background-overlay"></div>
+                                                            <div class="elementor-container elementor-column-gap-default">
+                                                                <div class="elementor-row">
+                                                                    <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-7ba572ae" data-id="7ba572ae" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+                                                                        <div class="elementor-column-wrap">
+                                                                            <div class="elementor-widget-wrap"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-61b002b2" data-id="61b002b2" data-element_type="column">
+                                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                                            <div class="elementor-widget-wrap">
+                                                                                <div class="elementor-element elementor-element-42cdb887 ha-testimonial--left ha-testimonial--basic elementor-widget elementor-widget-ha-testimonial happy-addon ha-testimonial" data-id="42cdb887" data-element_type="widget" data-widget_type="ha-testimonial.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="ha-testimonial__content">
+                                                                                            “This platform has helped me and my family get out of poverty and make our lives better. I will always be grateful to them!”
+                                                                                        </div>
+                                                                                        <div class="ha-testimonial__reviewer">
+                                                                                            <div class="ha-testimonial__reviewer-thumb">
+                                                                                                <img width="600" height="530" src="static/picture/user_ms_1.jpeg" class="attachment-full size-full" alt="" loading="lazy" sizes="(max-width: 600px) 100vw, 600px">
+                                                                                            </div>
+                                                                                            <div class="ha-testimonial__reviewer-meta">
+                                                                                                <div class="ha-testimonial__reviewer-name">Jaken</div>
+                                                                                                <div class="ha-testimonial__reviewer-title"></div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-3b7df8a5" data-id="3b7df8a5" data-element_type="column">
+                                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                                            <div class="elementor-widget-wrap">
+                                                                                <div class="elementor-element elementor-element-17068071 ha-testimonial--left ha-testimonial--basic elementor-widget elementor-widget-ha-testimonial happy-addon ha-testimonial" data-id="17068071" data-element_type="widget" data-widget_type="ha-testimonial.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="ha-testimonial__content">
+                                                                                            “I have made a lot of money on this platform and now I can go to my dream country.”
+                                                                                        </div>
+                                                                                        <div class="ha-testimonial__reviewer">
+                                                                                            <div class="ha-testimonial__reviewer-thumb">
+                                                                                                <img width="600" height="530" src="static/picture/user_ms_2.jpeg" class="attachment-full size-full" alt="" loading="lazy" sizes="(max-width: 600px) 100vw, 600px">
+                                                                                            </div>
+                                                                                            <div class="ha-testimonial__reviewer-meta">
+                                                                                                <div class="ha-testimonial__reviewer-name">Taga</div>
+                                                                                                <div class="ha-testimonial__reviewer-title"></div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="elementor-element elementor-element-15368da3 ha-testimonial--left ha-testimonial--basic elementor-widget elementor-widget-ha-testimonial happy-addon ha-testimonial" data-id="15368da3" data-element_type="widget" data-widget_type="ha-testimonial.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="ha-testimonial__content">
+                                                                                            “Making money on this platform has been a good way to make money so far. Thanks to them, I am able to raise a lot of money.”
+                                                                                        </div>
+                                                                                        <div class="ha-testimonial__reviewer">
+                                                                                            <div class="ha-testimonial__reviewer-thumb">
+                                                                                                <img width="600" height="530" src="static/picture/user_ms_3.jpeg" class="attachment-full size-full" alt="" loading="lazy" sizes="(max-width: 600px) 100vw, 600px">
+                                                                                            </div>
+                                                                                            <div class="ha-testimonial__reviewer-meta">
+                                                                                                <div class="ha-testimonial__reviewer-name">Pobo</div>
+                                                                                                <div class="ha-testimonial__reviewer-title"></div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                        <section class="elementor-section elementor-top-section elementor-element elementor-element-e88e09 elementor-section-height-min-height elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="e88e09" data-element_type="section" id="contact" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;_ha_eqh_enable&quot;:false}">
+                                                            <div class="elementor-background-overlay"></div>
+                                                            <div class="elementor-container elementor-column-gap-default">
+                                                                <div class="elementor-row">
+                                                                    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-44138fe0" data-id="44138fe0" data-element_type="column">
+                                                                        <div class="elementor-column-wrap elementor-element-populated">
+                                                                            <div class="elementor-widget-wrap">
+                                                                                <div class="elementor-element elementor-element-3e2f6a3d elementor-widget elementor-widget-heading" data-id="3e2f6a3d" data-element_type="widget" data-widget_type="heading.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <h2 class="elementor-heading-title elementor-size-default">
+                                                                                            Join Us and Make Money Now
+                                                                                        </h2>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="elementor-element elementor-element-61b26ce1 elementor-widget elementor-widget-text-editor" data-id="61b26ce1" data-element_type="widget" data-widget_type="text-editor.default">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="elementor-text-editor elementor-clearfix">
+                                                                                            <p>We are delighted to work with you and help you realize your dreams. Join us on WHATSAPP and let’s get rich together.</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="elementor-element elementor-element-f62e80c elementor-mobile-align-center elementor-align-left elementor-widget elementor-widget-button animated jump tada" data-id="f62e80c" data-element_type="widget" data-settings="{&quot;motion_fx_motion_fx_mouse&quot;:&quot;yes&quot;,&quot;_animation&quot;:&quot;tada&quot;}" data-widget_type="button.default" style="text-align: center;">
+                                                                                    <div class="elementor-widget-container">
+                                                                                        <div class="elementor-button-wrapper">
+                                                                                            <a onclick="setDomVisible('intBgDiv', 'flex')" class="elementor-button elementor-size-md" role="button">
+                                                                                                <span class="elementor-button-content-wrapper">
+                                                                                                    <span class="elementor-button-icon elementor-align-icon-left">
+                                                                                                        <i aria-hidden="true" class="fab" style="width: 40px;">
+                                                                                                            <img src="static/picture/small-whatsapp.gif" alt="">
+                                                                                                        </i>
+                                                                                                    </span>
+                                                                                                    <span class="elementor-button-text">
+                                                                                                        <div style="padding-top: 8px; color: black">Add WHATSAPP</div>
+                                                                                                    </span>
+                                                                                                </span>
+                                                                                            </a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </main>
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="site-footer" id="colophon" itemscope="itemscope" itemid="#colophon">
+                        <div class="site-below-footer-wrap ast-builder-grid-row-container site-footer-focus-item ast-builder-grid-row-full ast-builder-grid-row-tablet-full ast-builder-grid-row-mobile-full ast-footer-row-stack ast-footer-row-tablet-stack ast-footer-row-mobile-stack" data-section="section-below-footer-builder">
+                            <div class="ast-builder-grid-row-container-inner">
+                                <div class="ast-builder-footer-grid-columns site-below-footer-inner-wrap ast-builder-grid-row">
+                                    <div class="site-footer-below-section-1 site-footer-section site-footer-section-1">
+                                        <div class="ast-builder-layout-element ast-flex site-footer-focus-item ast-footer-copyright" data-section="section-footer-builder">
+                                            <div class="ast-footer-copyright">
+                                                <p>© A Better Way of Money Making in 2025</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+
+                <script src="static/js/frontend-modules.min.js" id="elementor-frontend-modules-js"></script>
+                <script src="static/js/waypoints.min.js" id="elementor-waypoints-js"></script>
+                <script src="static/js/swiper.min.js" id="swiper-js"></script>
+                <script id="elementor-frontend-js-before">
+                    var elementorFrontendConfig = {
+                        "environmentMode": {
+                            "edit": !1,
+                            "wpPreview": !1
+                        },
+                        "i18n": {
+                            "shareOnFacebook": "Share on Facebook",
+                            "shareOnTwitter": "Share on Twitter",
+                            "pinIt": "Pin it",
+                            "download": "Download",
+                            "downloadImage": "Download image",
+                            "fullscreen": "Fullscreen",
+                            "zoom": "Zoom",
+                            "share": "Share",
+                            "playVideo": "Play Video",
+                            "previous": "Previous",
+                            "next": "Next",
+                            "close": "Close"
+                        },
+                        "is_rtl": !1,
+                        "breakpoints": {
+                            "xs": 0,
+                            "sm": 480,
+                            "md": 768,
+                            "lg": 1025,
+                            "xl": 1440,
+                            "xxl": 1600
+                        },
+                        "version": "3.0.15",
+                        "is_static": !1,
+                        "legacyMode": {
+                            "elementWrappers": !0
+                        },
+                        "urls": {
+                            "assets": "https:\/\/\/wp-content\/plugins\/elementor\/assets\/"
+                        },
+                        "settings": {
+                            "page": [],
+                            "editorPreferences": [],
+                            "general": []
+                        },
+                        "kit": {
+                            "global_image_lightbox": "yes",
+                            "lightbox_enable_counter": "yes",
+                            "lightbox_enable_fullscreen": "yes",
+                            "lightbox_enable_zoom": "yes",
+                            "lightbox_enable_share": "yes",
+                            "lightbox_title_src": "title",
+                            "lightbox_description_src": "description"
+                        },
+                        "post": {
+                            "id": 12,
+                            "title": "Charmed%20Money%20%E2%80%93%20Earn%20Online%20Daily.",
+                            "excerpt": "",
+                            "featuredImage": !1
+                        }
+                    }
+                </script>
+                <script src="static/js/frontend.min2.js" id="elementor-frontend-js"></script>
+            </div>
+        </div>
+    </div>
+    <span id="elementor-device-mode" class="elementor-screen-only"></span>
+    <div id="intBgDiv" style="z-index:10000;width: 100%;height: 100%;background: rgba(0,0,0,0.5);position: fixed;top: 0;bottom: 0;display: none;align-items: center;justify-content: center;">
+
+        <div id="intMainDiv" style="align-items: center;justify-content: center;background: linear-gradient(to bottom right, rgba(109, 213, 250, 1), rgba(255, 255, 255, 1));border-radius: 10px;padding: 20px;margin: 40px;flex-direction: column;display: flex;width: 80%;">
+            <span style="color: black;font-size: 14pt;margin-top: 10px;width: 100%;text-align: center;margin-bottom: 20px;;font-size: 24px;">Queuing up....
+Congratulations on grabbing a seat, please contact customer service within 5 minutes! 
+Otherwise, the quota will be invalid and you will lose your quota!</span>
+            <span onclick="intChoose()" style="width: 100%;text-align: center;background: #046412;margin: 10px 20px;border-radius: 10px;padding: 10px 0px;color: white;font-size: 20px;">
+                Start
+            </span>
+        </div>
+    </div>
+    <div id="oneBgDiv" style="z-index:10000;width: 100%;height: 100%;background: rgba(0,0,0,0.5);position: fixed;top: 0;bottom: 0;display: none;align-items: center;justify-content: center;">
+
+        <div id="oneMainDiv" style="align-items: center;justify-content: center;background: linear-gradient(to bottom right, rgba(109, 213, 250, 1), rgba(255, 255, 255, 1));border-radius: 10px;padding: 20px;margin: 40px;flex-direction: column;display: flex;width: 80%;">
+            <span style="color: black;font-size: 14pt;margin-top: 10px;width: 100%;text-align: center;margin-bottom: 20px;font-size: 24px;">Will you contact customer service immediately?</span>
+            <span onclick="jump_url(1)" style="width: 100%;text-align: center;background: #068B19;border-radius: 10px;margin: 10px 20px;padding: 10px 0px;color: white;font-size: 20px;">
+               YES
+            </span>
+            <span onclick="jump_url(2)" style="width: 100%;text-align: center;background: #068B19;border-radius: 10px;margin: 10px 20px;padding: 10px 0px;color: white;font-size: 20px;">
+               NO
+            </span>
+        </div>
+    </div>
+    <div id="tipBgDiv" style="z-index:10000;width: 100%;height: 100%;background: rgba(0,0,0,0.5);position: fixed;top: 0;bottom: 0;display: none;align-items: center;justify-content: center;">
+
+        <div id="tipMainDiv" style="align-items: center;justify-content: center;background: linear-gradient(to bottom right, rgba(109, 213, 250, 1), rgba(255, 255, 255, 1));border-radius: 10px;padding: 20px;margin: 40px;flex-direction: column;display: flex;width: 80%;">
+            <span style="color: black;font-size: 14pt;margin-top: 10px;width: 100%;text-align: left;margin-bottom: 20px;font-size: 24px;">Sorry,you do not meet our conditions!</span>
+            <span onclick="setDomVisible('tipBgDiv','none')" style="width: 100%;text-align: center;background: #03a407;border-radius: 10px;margin: 10px 20px;padding: 10px 0px;color: white;font-size: 20px;">confirm</span>
+        </div>
+    </div>
+    <div id="loadBgDiv" style="z-index:10000;width: 100%;height: 100%;background: rgba(0,0,0,0.5);position: fixed;top: 0;bottom: 0;display: none;align-items: center;justify-content: center;">
+	        
+	    <div style="align-items: center;justify-content: center; background: linear-gradient(to bottom right, rgba(109, 213, 250, 1), rgba(255, 255, 255, 1));border-radius: 10px;padding: 20px;margin: 40px;flex-direction: column;display: flex;width: 80%;">
+		 
+
+		  <div class="alert-body">
+    		<a id="js-alert-btn" class="btn btn-success alert-btn-disabled" onclick="jump_url()">Contact us</a>
+		  </div>
+		 
+		</div>
+	</div>
+    <div style="position: fixed;z-index:10000000;top:0;bottom:0;left:0;right:0;background-color:rgba(0,0,0,0.8);display:none;justify-content: center;align-items: center;flex-direction: column;" id="mask">
+        <div class="spinner-border text-success" role="status">
+            <span class="sr-only">Getting Whatsapp...</span>
+        </div>
+        <div style="font-size:32px;color:#fff;">Getting Whatsapp...</div>
+    </div>
+    <script>
+		//dom显示状态控制
+		function setDomVisible(id, visible, index) {
+			if(visible == 'flex'){
+				// if(!isEmpty(index)){
+			 //		uploadClick(index, 99);
+				// }
+				
+				document.getElementById(id).style.display = visible; 
+			}else{
+				document.getElementById(id).style.display = visible;
+			}
+		}
+
+		//评估开始
+		function intChoose() {
+			setDomVisible("intBgDiv", "none");
+			setDomVisible("oneBgDiv", "flex", 1);
+		}
+		
+		//答案1 sex
+		function sexChoose(one) {
+		    try {
+		        setDomVisible("oneBgDiv", "none");
+		        if (one == 3) { 
+		        	setDomVisible("loadBgDiv", "flex");
+		        } else {
+		        	setDomVisible("tipBgDiv", "flex");
+		        }
+		    } catch (e) {
+		      //  setDomVisible("tipBgDiv", "flex");
+		    }
+		}
+    </script>
+</body>
+</html>
