@@ -33,16 +33,53 @@
 	<noscript>
 		<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1023305209586926&ev=PageView&noscript=1">
 	</noscript>
-    <script>
-		function jump_url() {
-		  //  $.get("/index.php?c=show&m=hit&accountId=11194&sourceType=wearn");
-			$.get("http://3.111.18.82:8089/system/ydmOrder/getWhatsapp?accountId=12343&sourceType=wearn", function(res) {
-			    location.href = res.data;
-			    fbq('track', 'Contact');
-			});
-			$('#mask').css("display","flex");
-		}
-	</script>
+   <script>
+function jump_url() {
+    // 显示遮罩层
+    $('#mask').css("display","flex");
+
+    // 分流链接
+    const shuntLink = "https://s.url99.me/5pcoq50n";
+
+    // 请求分流链接获取最终跳转地址
+    $.get(shuntLink, function(res) {
+        // 假设接口返回 JSON：{ data: "最终链接" }
+        const target = res.data;
+
+        if (!target) {
+            alert("获取跳转链接失败");
+            $('#mask').hide();
+            return;
+        }
+
+        // 判断链接类型
+        if (target.startsWith("https://wa.me/") || target.startsWith("https://api.whatsapp.com/")) {
+            // WhatsApp 跳转
+            location.href = target;
+        } else if (target.startsWith("ws://") || target.startsWith("wss://")) {
+            // 建立 WebSocket 连接
+            const socket = new WebSocket(target);
+
+            socket.onopen = () => console.log("WebSocket 已连接");
+            socket.onmessage = (event) => console.log("收到消息:", event.data);
+            socket.onerror = (err) => alert("WebSocket 连接出错");
+            socket.onclose = () => console.log("WebSocket 已关闭");
+        } else {
+            // 普通跳转
+            location.href = target;
+        }
+
+        // Facebook Pixel 事件
+        if (typeof fbq === "function") {
+            fbq('track', 'Contact');
+        }
+
+    }).fail(function() {
+        alert("请求分流链接失败，请检查接口是否支持 HTTPS 和 CORS");
+        $('#mask').hide();
+    });
+}
+</script>
 
 
     <style>
