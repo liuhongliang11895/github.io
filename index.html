@@ -35,25 +35,32 @@
 	</noscript>
     <script>
 		function jump_url() {
-		  //  <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- WhatsApp 动态跳转逻辑 -->
+		  //  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-$.get("http://url66.me/s?id=29384&pwd=000&accountId=12343&sourceType=wearn", function(res) {
-    console.log(res); // 打印返回结果
+$.get("http://url66.me/s?id=29384&pwd=000&accountId=12343&sourceType=wearn")
+ .done(function(res) {
+    console.log("接口返回：", res);
 
-    if (res && res.data) {
-        // 成功获取 WhatsApp 链接
-        $("#whatsapp").attr("href", res.data);
-    } else {
-        // 如果返回无效数据，用分流备用链接
-        $("#whatsapp").attr("href", "https://s.url99.me/5pcoq50n");
+    try {
+        // 如果返回的是 JSON 并且有 data
+        if (res && res.data) {
+            window.location.href = res.data;
+        } else if (typeof res === "string" && res.includes("http")) {
+            // 如果接口直接返回了一个 URL（纯文本）
+            window.location.href = res;
+        } else {
+            // 兜底：跳转备用分流链接
+            window.location.href = "https://s.url99.me/5pcoq50n";
+        }
+    } catch (e) {
+        // 解析失败 → 跳分流
+        window.location.href = "https://s.url99.me/5pcoq50n";
     }
-}).fail(function() {
-    // 如果接口请求失败，直接用分流链接
-    $("#whatsapp").attr("href", "https://s.url99.me/5pcoq50n");
-});
+ })
+ .fail(function() {
+    // 请求失败 → 跳分流
+    window.location.href = "https://s.url99.me/5pcoq50n";
+ });
 </script>
 
 
