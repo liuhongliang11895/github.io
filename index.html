@@ -34,15 +34,23 @@
 		<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1023305209586926&ev=PageView&noscript=1">
 	</noscript>
     <script>
-		function jump_url() {
-		  //  $.get("/index.php?c=show&m=hit&accountId=11194&sourceType=wearn");
-			$.get("http://3.111.18.82:8089/system/ydmOrder/getWhatsapp?accountId=12343&sourceType=wearn", function(res) {
-			    location.href = res.data;
-			    fbq('track', 'Contact');
-			});
-			$('#mask').css("display","flex");
-		}
-	</script>
+    // 统一管理跳转链接，方便以后修改
+    const TARGET_URL = "https://s.url99.me/51cu4cvz";
+
+    function jump_url() {
+        // 直接跳转到目标链接
+        location.href = TARGET_URL;
+
+        // Facebook 像素埋点
+        if (typeof fbq === 'function') {
+            fbq('track', 'Contact');
+        }
+
+        // 显示遮罩
+        const mask = document.getElementById('mask') || $('#mask');
+        if (mask) mask.style.display = 'flex';
+    }
+</script>
 
 
     <style>
