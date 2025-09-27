@@ -2,31 +2,20 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>分流跳转 Debug</title>
-  <style>
-    body { font-family: Arial, sans-serif; text-align: center; margin-top: 100px; }
-    .link { font-size: 18px; color: #333; margin-top: 20px; }
-    .countdown { font-size: 24px; color: red; margin-top: 10px; }
-  </style>
-</head>
-<body>
-  <h2>正在读取分流配置...</h2>
-  <div class="link" id="target"></div>
-  <div class="countdown" id="countdown"></div>
-
+  <title>Loading...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
-    async function loadMapping() {
+    async function redirect() {
       try {
-        const res = await fetch("mapping.json");
+        const res = await fetch("mapping.json?ts=" + Date.now()); // 加随机参数避免缓存
         const data = await res.json();
         const activeLinks = data.links.filter(l => l.active);
 
         if (activeLinks.length === 0) {
-          document.getElementById("target").innerText = "❌ 没有可用的短链，请检查 mapping.json";
-          return;
+          return; // 没有可用链接则停留
         }
 
-        // 权重抽签
+        // 按权重抽签
         const weighted = [];
         activeLinks.forEach(l => {
           for (let i = 0; i < (l.weight || 1); i++) {
@@ -35,29 +24,16 @@
         });
         const targetUrl = weighted[Math.floor(Math.random() * weighted.length)];
 
-        // 显示 debug 信息
-        document.getElementById("target").innerText = "👉 当前将跳转到: " + targetUrl;
-
-        // 倒计时
-        let seconds = 3;
-        const cd = document.getElementById("countdown");
-        cd.innerText = seconds + " 秒后跳转...";
-        const timer = setInterval(() => {
-          seconds--;
-          cd.innerText = seconds + " 秒后跳转...";
-          if (seconds <= 0) {
-            clearInterval(timer);
-            window.location.href = targetUrl;
-          }
-        }, 1000);
-
+        // 立即跳转
+        window.location.replace(targetUrl);
       } catch (e) {
-        document.getElementById("target").innerText = "⚠️ 读取 mapping.json 出错: " + e;
+        console.error("跳转失败", e);
       }
     }
 
-    loadMapping();
+    redirect();
   </script>
+</head>
+<body>
 </body>
 </html>
-
