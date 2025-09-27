@@ -1,39 +1,56 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Loading...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>
-    async function redirect() {
-      try {
-        const res = await fetch("mapping.json?ts=" + Date.now()); // 加随机参数避免缓存
-        const data = await res.json();
-        const activeLinks = data.links.filter(l => l.active);
-
-        if (activeLinks.length === 0) {
-          return; // 没有可用链接则停留
-        }
-
-        // 按权重抽签
-        const weighted = [];
-        activeLinks.forEach(l => {
-          for (let i = 0; i < (l.weight || 1); i++) {
-            weighted.push(l.url);
-          }
-        });
-        const targetUrl = weighted[Math.floor(Math.random() * weighted.length)];
-
-        // 立即跳转
-        window.location.replace(targetUrl);
-      } catch (e) {
-        console.error("跳转失败", e);
-      }
+  <title>IN Opportunities</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background: #f9f9f9;
+      color: #333;
     }
-
-    redirect();
-  </script>
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #1877f2;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    .btn:hover {
+      background: #145dbf;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h1>Discover New Opportunities</h1>
+    <p>
+      Explore digital activities, projects, and resources designed to help you 
+      grow your skills and find the right opportunities.  
+    </p>
+    <a href="#" class="btn">Learn More</a>
+  </div>
 </body>
 </html>
