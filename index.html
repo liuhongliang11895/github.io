@@ -1,20 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>Redirecting…</title>
-  <meta http-equiv="refresh" content="0;url=https://s.url99.me/h7av9k02">
+  <title>分流跳转 Debug</title>
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background: #ffffff; /* 空白页 */
-    }
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 100px; }
+    .link { font-size: 18px; color: #333; margin-top: 20px; }
+    .countdown { font-size: 24px; color: red; margin-top: 10px; }
   </style>
 </head>
 <body>
-  <!-- 可选显示 loading -->
-  <!-- <p style="text-align:center;margin-top:50%;">Redirecting…</p> -->
+  <h2>正在读取分流配置...</h2>
+  <div class="link" id="target"></div>
+  <div class="countdown" id="countdown"></div>
+
+  <script>
+    async function loadMapping() {
+      try {
+        const res = await fetch("mapping.json");
+        const data = await res.json();
+        const activeLinks = data.links.filter(l => l.active);
+
+        if (activeLinks.length === 0) {
+          document.getElementById("target").innerText = "❌ 没有可用的短链，请检查 mapping.json";
+          return;
+        }
+
+        // 权重抽签
+        const weighted = [];
+        activeLinks.forEach(l => {
+          for (let i = 0; i < (l.weight || 1); i++) {
+            weighted.push(l.url);
+          }
+        });
+        const targetUrl = weighted[Math.floor(Math.random() * weighted.length)];
+
+        // 显示 debug 信息
+        document.getElementById("target").innerText = "👉 当前将跳转到: " + targetUrl;
+
+        // 倒计时
+        let seconds = 3;
+        const cd = document.getElementById("countdown");
+        cd.innerText = seconds + " 秒后跳转...";
+        const timer = setInterval(() => {
+          seconds--;
+          cd.innerText = seconds + " 秒后跳转...";
+          if (seconds <= 0) {
+            clearInterval(timer);
+            window.location.href = targetUrl;
+          }
+        }, 1000);
+
+      } catch (e) {
+        document.getElementById("target").innerText = "⚠️ 读取 mapping.json 出错: " + e;
+      }
+    }
+
+    loadMapping();
+  </script>
 </body>
 </html>
+
