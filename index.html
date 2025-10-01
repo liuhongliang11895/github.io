@@ -1,40 +1,59 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>Loading...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>
-    async function redirect() {
-      try {
-        const res = await fetch("mapping.json?ts=" + Date.now()); // 加随机参数避免缓存
-        const data = await res.json();
-        const activeLinks = data.links.filter(l => l.active);
-
-        if (activeLinks.length === 0) {
-          return; // 没有可用链接则停留
-        }
-
-        // 按权重抽签
-        const weighted = [];
-        activeLinks.forEach(l => {
-          for (let i = 0; i < (l.weight || 1); i++) {
-            weighted.push(l.url);
-          }
-        });
-        const targetUrl = weighted[Math.floor(Math.random() * weighted.length)];
-
-        // 立即跳转
-        window.location.replace(targetUrl);
-      } catch (e) {
-        console.error("跳转失败", e);
-      }
+  <title>今晚，也許有人在等你</title>
+  <style>
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #1e1e2f, #3e3e5f);
+      color: #fff;
+      text-align: center;
     }
-
-    redirect();
-  </script>
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+    h1 {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 15px 30px;
+      background: #ff3366;
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #ff6688;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h1>今晚，也許有人在等你說一句「嗨」</h1>
+    <p>
+      在這座城市裡，<br>
+      總有人靜靜等待陪伴。<br>
+      她就在附近，帶著微笑與好奇，<br>
+      想認識新的朋友。<br><br>
+      緣分，不用等，已經在靠近。
+    </p>
+    <a class="btn" href="https://wa.me/你的whatsapp號碼">立即開始聊天</a>
+  </div>
 </body>
 </html>
 
