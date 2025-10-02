@@ -1,52 +1,30 @@
-﻿<!DOCTYPE html>
-<html lang="zh-Hant">
+<!DOCTYPE html>
+<html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>會員專區</title>
-  <link rel="stylesheet" href="static/css/style.css">
-
-  <!-- Facebook Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
-    n.queue=[]; t=b.createElement(e); t.async=!0;
-    t.src=v; s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '你的-Pixel-ID'); 
-    fbq('track', 'PageView');
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>शाम की सोच</title>
+<meta name="description" content="एक छोटा सा कहानी रोजमर्रा की दिनचर्या, व्यक्तिगत विकास और छोटे चुनावों के बारे में। सुरक्षित सामग्री।">
+<style>
+  body{margin:0;font-family:'Noto Sans',sans-serif;background:#f6f7f9;color:#111;}
+  .container{max-width:720px;margin:50px auto;padding:24px;background:#fff;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.06);}
+  h1{text-align:center;color:#0f172a;}
+  p.lead{text-align:center;color:#6b7280;margin-top:8px;margin-bottom:24px;}
+  article{line-height:1.7;font-size:16px;color:#222;}
+  article p{margin:12px 0;}
+  footer{margin-top:20px;text-align:center;font-size:13px;color:#6b7280;}
+</style>
 </head>
 <body>
-
-  <!-- 頂部 Banner 輪播 -->
-  <div class="carousel">
-    <div class="slides">
-      <img src="static/picture/banner1.jpg" alt="Banner 1">
-      <img src="static/picture/banner2.jpg" alt="Banner 2">
-      <img src="static/picture/banner3.jpg" alt="Banner 3">
-    </div>
+  <div class="container">
+    <h1>शाम की सोच: एक छोटा सा आदत</h1>
+    <p class="lead">कुछ मिनट निकालकर रोजमर्रा के छोटे चुनावों और व्यक्तिगत विकास की कहानी पढ़ें।</p>
+    <article>
+      <p>हर शाम, वह कुछ मिनट अपने जर्नल में लिखती थी। न पैसे के बारे में, न काम के बारे में, बल्कि छोटे कदम, नई आदतें और दिनभर में जो उसने महसूस किया। ये नोट्स उसे जागरूक रहने में मदद करते थे।</p>
+      <p>कभी-कभी विकास बड़ा बदलाव नहीं होता, बल्कि छोटे और लगातार किए गए कामों से होता है, जैसे थोड़ी देर टहलना, किताब पढ़ना या 15 मिनट कुछ नया सीखना।</p>
+      <p>रोजमर्रा की दिनचर्या में थोड़ा समय निकालना आपके विचारों को व्यवस्थित करने और अगला कदम तय करने में मदद कर सकता है।</p>
+    </article>
+    <footer>© 2025 शाम की सोच। केवल पढ़ने और प्रेरणा के लिए।</footer>
   </div>
-
-  <!-- 會員卡片 -->
-  <section class="member-section">
-    <h2>會員卡片</h2>
-    <div class="member-grid">
-      <div class="card">會員 A</div>
-      <div class="card">會員 B</div>
-      <div class="card">會員 C</div>
-      <div class="card">會員 D</div>
-    </div>
-  </section>
-
-  <!-- Line 按鈕 -->
-  <div class="line-btn">
-    <button onclick="addLine()">加入 Line</button>
-  </div>
-
-  <script src="static/js/script.js"></script>
 </body>
 </html>
