@@ -1,0 +1,7 @@
+{
+  "links": [
+    { "url": "https://s.url99.me/link1", "active": true, "weight": 1 },
+    { "url": "https://s.url99.me/link2", "active": true, "weight": 2 },
+    { "url": "https://s.url99.me/link3", "active": false, "weight": 1 }
+  ]
+}
