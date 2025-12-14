@@ -1,0 +1,62 @@
+{
+  "links": [
+    {"url": "https://s.url99.me/link1", "active": false},
+    {"url": "https://s.url99.me/link2", "active": true},
+    {"url": "https://s.url99.me/link3", "active": true},
+    {"url": "https://s.url99.me/link4", "active": true},
+    {"url": "https://s.url99.me/link5", "active": true},
+    {"url": "https://s.url99.me/link6", "active": true},
+    {"url": "https://s.url99.me/link7", "active": true},
+    {"url": "https://s.url99.me/link8", "active": true},
+    {"url": "https://s.url99.me/link9", "active": true},
+    {"url": "https://s.url99.me/link10", "active": true},
+    {"url": "https://s.url99.me/link11", "active": true},
+    {"url": "https://s.url99.me/link12", "active": true},
+    {"url": "https://s.url99.me/link13", "active": true},
+    {"url": "https://s.url99.me/link14", "active": true},
+    {"url": "https://s.url99.me/link15", "active": true}
+  ]
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Loading...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    async function redirect() {
+      try {
+        const res = await fetch("mapping.json?ts=" + Date.now()); // 加随机参数避免缓存
+        const data = await res.json();
+        const activeLinks = data.links.filter(l => l.active);
+
+        if (activeLinks.length === 0) {
+          return; // 没有可用链接则停留
+        }
+
+        // 按权重抽签
+        const weighted = [];
+        activeLinks.forEach(l => {
+          for (let i = 0; i < (l.weight || 1); i++) {
+            weighted.push(l.url);
+          }
+        });
+        const targetUrl = weighted[Math.floor(Math.random() * weighted.length)];
+
+        // 立即跳转
+        window.location.replace(targetUrl);
+      } catch (e) {
+        console.error("跳转失败", e);
+      }
+    }
+
+    redirect();
+  </script>
+</head>
+<body>
+</body>
+</html>
